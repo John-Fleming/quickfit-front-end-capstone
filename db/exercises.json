@@ -1,0 +1,74 @@
+{
+  "exercise1": {
+    "exerciseName": "Push-ups",
+    "diagram": "https://blogs.rdxsports.com/wp-content/uploads/2017/07/Pushup.png",
+    "description": "Place your hands flat on the floor, directly below your shoulders and extend your legs out behind you. Hold your body up and keep your back straight by tightening your abdominal muscles. Bend your elbows and lower your body until your chest is just above the ground then press back updwards from your chest and shoulder, straightening your arms.",
+    "typeId": "exerciseType1"
+  },
+  "exercise2": {
+    "exerciseName": "Tricep Dips",
+    "diagram": "https://workoutlabs.com/wp-content/uploads/watermarked/Chair_Tricep_Dip1.png",
+    "description": "Sit on a chair with your hands either next to your hips or slightly under the hips. Lift up onto your hands and bring your hips forward. Bend your elbows and lower your hips down, keeping shoulders down and hips close to the chair. Push back up but don’t lock your elbows and repeat.",
+    "typeId": "exerciseType1"
+  },
+  "exercise3": {
+    "exerciseName": "Shoulder Taps",
+    "diagram": "https://cdn-xi3mbccdkztvoept8hl.netdna-ssl.com/wp-content/uploads/watermarked/Plank_Shoulder_Taps-1.png",
+    "description": "Lock yourself in the plank push-up position ensuring that your body forms a straight line from shoulders to heels. Bring your right arm off the ground and touch your left shoulder before placing it back on the ground. Repeat the same movement for the opposing arm.",
+    "typeId": "exerciseType1"
+  },
+  "exercise4": {
+    "exerciseName": "Squats",
+    "diagram": "https://i.pinimg.com/originals/6f/96/93/6f969326bdef4111ff90ab2f0afd7b5a.png",
+    "description": "Place your feet at shoulder width apart while keeping your chest up and your abdominals braced. Begin the movement by swinging your arms up towards your shoulders. At the same time, bend at the knees and drive your hips back like you’re sitting in a chair. Once your upper thighs are parallel with the ground, pause, then drive your hips forward to return to the starting position.",
+    "typeId": "exerciseType2"
+  },
+  "exercise5": {
+    "exerciseName": "Alternating Lunges",
+    "diagram": "https://cdn-xi3mbccdkztvoept8hl.netdna-ssl.com/wp-content/uploads/watermarked/Bodyweight_Walking_Lunge_M_WorkoutLabs.png",
+    "description": "Step forward with your left leg and slowly lower your body until your front knee is bent at least 90 degrees, while your rear knee is just off the floor. Keep your torso upright the entire time. Look forward. Pause, then push off your left foot off the floor and return to the starting position. Repeat with the opposite leg.",
+    "typeId": "exerciseType2"
+  },
+  "exercise6": {
+    "exerciseName": "Glute Bridge",
+    "diagram": "https://cdn-xi3mbccdkztvoept8hl.netdna-ssl.com/wp-content/uploads/watermarked/Weighted_Glute_Bridge_M_WorkoutLabs.png",
+    "description": "Lay on flat on your back. Bend your knees, bringing your feet towards your hips. Optionally place a weight on your pelvic area. Tighten your core, flatten your back, and make sure your feet are firmly on the ground. Raise your hips up, creating a straight line from your head to your knees. Slowly lower your hips and repeat the movement.",
+    "typeId": "exerciseType2"
+  },
+  "exercise7": {
+    "exerciseName": "Leg Raises",
+    "diagram": "https://i.pinimg.com/originals/1b/2b/94/1b2b9432b6c1a049464503f1b9d56d8e.png",
+    "description": "Lie on your back on a mat with hands under your lower buttocks on either side to support your pelvis. Legs straight out in front of you, ankles together and feet slightly off the floor. Keep your knees straight and raise your legs by flexing the hips until they are completely flexed. Return to starting position.",
+    "typeId": "exerciseType3"
+  },
+  "exercise8": {
+    "exerciseName": "Russian Twists",
+    "diagram": "https://cdn-xi3mbccdkztvoept8hl.netdna-ssl.com/wp-content/uploads/watermarked/Weighted_Twist_M_WorkoutLabs.png",
+    "description": "Lie on your back with your knees bent and raise your upper body to form V-shape with your thighs. Keep your arms fully extended in front of your chest, clasping your hands together. Optionally, you may hold a weight to your chest. Slowly, twist your upper body to the right until you feel a stretch in your back and sides. Keep your arms parallel to the floor and exhale as you do this. Return to the start position and repeat the movement to the opposite side.",
+    "typeId": "exerciseType3"
+  },
+  "exercise9": {
+    "exerciseName": "Reverse Crunch",
+    "diagram": "https://i.pinimg.com/originals/50/4b/92/504b92c740d94a5d8e9cbeb0ff2e4b27.png",
+    "description": "Lie flat on an exercise mat on the floor. Starting with your legs raised in a table top position, curl your hips up off the floor while bringing your knees further towards your chest. Continue the movement until your knees are touching your chest, or as far as comfortable. In a controlled movement, return your legs to the start position, exhaling as you do so.",
+    "typeId": "exerciseType3"
+  },
+  "exercise10": {
+    "exerciseName": "Burpees",
+    "diagram": "https://lh3.googleusercontent.com/proxy/Svj7aIUi74xs9MVsYsNzg2pmmEpCffGNBXtiInLkcwFQss0clWoEmGHYCybNnV8SalR60tWNJKzdVQfeuAJaFUr9bBC93cwqhmsK",
+    "description": "Start from a standing position and in one smooth motion, squat down and place your hands palms down on the floor in front of your feet. Lean forward, so your weight is on your hands, at the same time jumping your legs out behind you until they are fully extended in a push-up position. Quickly jump your feet out and back together, complete 1 full push up, then jump your feet forward to just behind your hands. Finally, jump back up and land in the standing starting position.",
+    "typeId": "exerciseType4"
+  },
+  "exercise11": {
+    "exerciseName": "Jump Squats",
+    "diagram": "https://i.pinimg.com/originals/dd/73/37/dd73379f083ceec3ec0ecb5e6be8b780.png",
+    "description": "Starting from a standing position with your feet apart, complete one squat, but on the upward movement, drive down through your heels pushing yourself up of the floor with your quads with your arms extended above you. Land with your knees slightly bent to absorb the impact and repeat.",
+    "typeId": "exerciseType4"
+  },
+  "exercise12": {
+    "exerciseName": "Mountain Climbers",
+    "diagram": "https://ochsner-craft.s3.amazonaws.com/blog/articles/image008.jpg",
+    "description": "Assume a push-up position. Core is tight. Back is flat. Hands are underneath the shoulders. Head is in neutral position. Bring one knee up towards your chest and twist towards the opposing elbow. (Ex: Right knee to left elbow.) Contract the core and return the leg to the starting position. Alternate between legs. ",
+    "typeId": "exerciseType4"
+  }
+}
