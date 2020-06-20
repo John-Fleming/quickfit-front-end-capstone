@@ -1,0 +1,62 @@
+{
+  "workout1": {
+    "upperExercise": "exercise1",
+    "lowerExercise": "exercise5",
+    "coreExercise": "exercise8",
+    "plyoExercise": "exercise12",
+    "reps": 10,
+    "sets": 5,
+    "isFavorited": true,
+    "UID": "12345"
+  },
+  "workout2": {
+    "upperExercise": "exercise2",
+    "lowerExercise": "exercise4",
+    "coreExercise": "exercise7",
+    "plyoExercise": "exercise10",
+    "reps": 8,
+    "sets": 4,
+    "isFavorited": true,
+    "UID": "12345"
+  },
+  "workout3": {
+    "upperExercise": "exercise3",
+    "lowerExercise": "exercise6",
+    "coreExercise": "exercise9",
+    "plyoExercise": "exercise11",
+    "reps": 15,
+    "sets": 4,
+    "isFavorited": false,
+    "UID": "12345"
+  },
+  "workout4": {
+    "upperExercise": "exercise2",
+    "lowerExercise": "exercise6",
+    "coreExercise": "exercise7",
+    "plyoExercise": "exercise10",
+    "reps": 5,
+    "sets": 6,
+    "isFavorited": false,
+    "UID": "12345"
+  },
+  "workout5": {
+    "upperExercise": "exercise3",
+    "lowerExercise": "exercise5",
+    "coreExercise": "exercise9",
+    "plyoExercise": "exercise11",
+    "reps": 10,
+    "sets": 6,
+    "isFavorited": false,
+    "UID": "12345"
+  },
+  "workout6": {
+    "upperExercise": "exercise1",
+    "lowerExercise": "exercise4",
+    "coreExercise": "exercise8",
+    "plyoExercise": "exercise12",
+    "reps": 12,
+    "sets": 4,
+    "isFavorited": false,
+    "UID": "12345"
+  }
+}

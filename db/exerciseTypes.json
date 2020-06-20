@@ -1,0 +1,14 @@
+{
+  "exerciseType1": {
+    "name": "Upper Body"
+  },
+  "exerciseType2": {
+    "name": "Lower Body"
+  },
+  "exerciseType3": {
+    "name": "Core"
+  },
+  "exerciseType4": {
+    "name": "Plyometric"
+  }
+}
