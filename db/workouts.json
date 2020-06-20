@@ -7,7 +7,7 @@
     "reps": 10,
     "sets": 5,
     "isFavorited": true,
-    "UID": "12345"
+    "UID": "Y957YSdtJNVEvgakLmeSJDBcDxn1"
   },
   "workout2": {
     "upperExercise": "exercise2",
@@ -17,7 +17,7 @@
     "reps": 8,
     "sets": 4,
     "isFavorited": true,
-    "UID": "12345"
+    "UID": "Y957YSdtJNVEvgakLmeSJDBcDxn1"
   },
   "workout3": {
     "upperExercise": "exercise3",
@@ -27,7 +27,7 @@
     "reps": 15,
     "sets": 4,
     "isFavorited": false,
-    "UID": "12345"
+    "UID": "Y957YSdtJNVEvgakLmeSJDBcDxn1"
   },
   "workout4": {
     "upperExercise": "exercise2",
@@ -37,7 +37,7 @@
     "reps": 5,
     "sets": 6,
     "isFavorited": false,
-    "UID": "12345"
+    "UID": "Y957YSdtJNVEvgakLmeSJDBcDxn1"
   },
   "workout5": {
     "upperExercise": "exercise3",
