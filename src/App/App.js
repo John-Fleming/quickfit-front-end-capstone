@@ -5,6 +5,7 @@ import './App.scss';
 
 import Home from '../components/pages/Home/Home';
 import Login from '../components/pages/Login/Login';
+import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
 
 import fbConnection from '../helpers/data/connection';
 
@@ -32,6 +33,7 @@ class App extends React.Component {
     const { authed } = this.state;
     return (
       <div className="App">
+        <MyNavbar authed={authed} />
         { authed
           ? <Home />
           : <Login authed={authed} />
