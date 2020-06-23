@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './WorkoutBuilder.scss';
 
 class WorkoutBuilder extends React.Component {
   render() {

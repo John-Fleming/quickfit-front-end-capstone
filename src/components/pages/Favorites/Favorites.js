@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Favorites.scss';
 
 class Favorites extends React.Component {
   render() {
