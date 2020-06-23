@@ -42,7 +42,7 @@ class MyNavbar extends React.Component {
       return (
         <div className="MyNavbar">
           <Navbar color="dark" dark expand="md">
-            <NavbarBrand href="/">Workout App</NavbarBrand>
+            <NavbarBrand href="/"><i className="fas fa-running"></i> Workout App</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto" navbar>
