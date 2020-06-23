@@ -12,7 +12,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="Login">
+      <div className="Login mx-auto">
         <button className="btn btn-outline-dark mt-3" onClick={this.loginClickEvent}>Login</button>
       </div>
     );

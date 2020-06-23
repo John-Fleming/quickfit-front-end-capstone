@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Profile extends React.Component {
   render() {
     return (
       <div className="Profile">
         <h2>Profile</h2>
-        <button className="btn btn-outline-dark">Go to to Home</button>
-        <button className="btn btn-outline-dark">To Favorites</button>
+        <Link className="btn btn-outline-dark" to='/home'>Go to to Home</Link>
+        <Link className="btn btn-outline-dark" to='/favorites'>To Favorites</Link>
       </div>
     );
   }
