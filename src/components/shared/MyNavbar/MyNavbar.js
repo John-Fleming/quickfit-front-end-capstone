@@ -1,6 +1,7 @@
 import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { NavLink as RRNavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import {
@@ -46,13 +47,13 @@ class MyNavbar extends React.Component {
             <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="/components/"><i className="far fa-bookmark"></i></NavLink>
+                  <NavLink tag={RRNavLink} to="/favorites"><i className="far fa-bookmark"></i></NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/components/"><i className="fas fa-user-circle"></i></NavLink>
+                  <NavLink tag={RRNavLink} to="/profile"><i className="fas fa-user-circle"></i></NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/components/" onClick={this.logMeOut}>Logout</NavLink>
+                  <NavLink onClick={this.logMeOut}>Logout</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>
