@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import './Home.scss';
 
 import authData from '../../../helpers/data/authData';
-import workoutData from '../../../helpers/data/workoutData';
 import exerciseData from '../../../helpers/data/exerciseData';
+import workoutData from '../../../helpers/data/workoutData';
 
 class Home extends React.Component {
   state = {
