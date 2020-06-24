@@ -16,12 +16,24 @@ class LiveWorkout extends React.Component {
       .catch((err) => console.error('could not get specific workout: , err'));
   }
 
+  cancelWorkout = () => {
+    const { workoutId } = this.props.match.params;
+    workoutData.deleteSingleWorkout(workoutId)
+      .then(() => this.props.history.push('/home'))
+      .catch((err) => console.error('could not delete workout: ', err));
+  }
+
   render() {
+    const { workout } = this.state;
     return (
       <div className="LiveWorkout">
-        <h2>LiveWorkout</h2>
-        <Link className="btn btn-outline-dark" to='/home'>Cancel to Home</Link>
-        <Link className="btn btn-outline-dark" to='/feedback/:workoutId'>To Post Workout</Link>
+        <h2>Your Workout</h2>
+        <div className="row">
+          <p className="repsets"><strong>Reps:</strong> {workout.reps}</p>
+          <p className="repsets"><strong>Sets:</strong> {workout.sets}</p>
+        </div>
+        <button className="btn btn-outline-dark" onClick={this.cancelWorkout}>Cancel</button>
+        <Link className="btn btn-outline-dark" to='/feedback/:workoutId'>Finish</Link>
       </div>
     );
   }

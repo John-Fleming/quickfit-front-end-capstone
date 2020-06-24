@@ -7,4 +7,6 @@ const getSingleWorkout = (workoutId) => axios.get(`${baseUrl}/workouts/${workout
 
 const createWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts.json`, newWorkout);
 
-export default { createWorkout, getSingleWorkout };
+const deleteSingleWorkout = (workoutId) => axios.delete(`${baseUrl}/workouts/${workoutId}.json`);
+
+export default { createWorkout, getSingleWorkout, deleteSingleWorkout };
