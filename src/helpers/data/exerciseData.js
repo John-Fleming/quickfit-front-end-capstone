@@ -19,4 +19,6 @@ const getExerciseByTypeId = (typeId) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getExerciseByTypeId };
+const getSingleExercise = (exerciseId) => axios.get(`${baseUrl}/exercises/${exerciseId}.json`);
+
+export default { getExerciseByTypeId, getSingleExercise };
