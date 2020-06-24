@@ -1,32 +1,32 @@
 {
   "completedWorkout1": {
     "workoutId": "workout1",
-    "timestamp": "2020-06-01",
+    "timestamp": "06-01-2020",
     "UID": "Y957YSdtJNVEvgakLmeSJDBcDxn1"
   },
   "completedWorkout2": {
     "workoutId": "workout2",
-    "timestamp": "2020-06-08",
+    "timestamp": "06-08-2020",
     "UID": "Y957YSdtJNVEvgakLmeSJDBcDxn1"
   },
   "completedWorkout3": {
     "workoutId": "workout3",
-    "timestamp": "2020-06-10",
+    "timestamp": "06-10-2020",
     "UID": "Y957YSdtJNVEvgakLmeSJDBcDxn1"
   },
   "completedWorkout4": {
     "workoutId": "workout4",
-    "timestamp": "2020-06-14",
+    "timestamp": "06-14-2020",
     "UID": "Y957YSdtJNVEvgakLmeSJDBcDxn1"
   },
   "completedWorkout5": {
     "workoutId": "workout5",
-    "timestamp": "2020-06-16",
+    "timestamp": "06-16-2020",
     "UID": "12345"
   },
   "completedWorkout6": {
     "workoutId": "workout6",
-    "timestamp": "2020-06-20",
+    "timestamp": "06-20-2020",
     "UID": "12345"
   }
 }

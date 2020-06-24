@@ -1,8 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './LiveWorkout.scss';
 
 import workoutData from '../../../helpers/data/workoutData';
+import authData from '../../../helpers/data/authData';
+import completedWorkoutData from '../../../helpers/data/completedWorkoutData';
+
+const moment = require('moment');
 
 class LiveWorkout extends React.Component {
   state = {
@@ -23,6 +27,18 @@ class LiveWorkout extends React.Component {
       .catch((err) => console.error('could not delete workout: ', err));
   }
 
+  postCompletedWorkout = () => {
+    const { workoutId } = this.props.match.params;
+    const newCompletedWorkout = {
+      workoutId,
+      timestamp: moment().format('MM-DD-YYYY'),
+      UID: authData.getUid(),
+    };
+    completedWorkoutData.createCompletedWorkout(newCompletedWorkout)
+      .then(() => this.props.history.push(`/feedback/${workoutId}`))
+      .catch((err) => console.error('could not create new completed workout: ', err));
+  }
+
   render() {
     const { workout } = this.state;
     return (
@@ -33,7 +49,7 @@ class LiveWorkout extends React.Component {
           <p className="repsets"><strong>Sets:</strong> {workout.sets}</p>
         </div>
         <button className="btn btn-outline-dark" onClick={this.cancelWorkout}>Cancel</button>
-        <Link className="btn btn-outline-dark" to='/feedback/:workoutId'>Finish</Link>
+        <button className="btn btn-outline-dark" onClick={this.postCompletedWorkout}>Finish</button>
       </div>
     );
   }
