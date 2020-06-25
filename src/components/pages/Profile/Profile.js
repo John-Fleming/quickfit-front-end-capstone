@@ -41,7 +41,12 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { username, userAvatar, completedWorkouts } = this.state;
+    const {
+      username,
+      userAvatar,
+      completedWorkouts,
+      favoriteWorkouts,
+    } = this.state;
     return (
       <div className="Profile">
         <div className="profile-card row col-10 offset-1">
@@ -56,7 +61,8 @@ class Profile extends React.Component {
                 <p className="completed-workout-count">{completedWorkouts.length}</p>
               </div>
               <div className="col-6 favorited-workout-container">
-              <h6 className="workout-counts-header">Favorited</h6>
+                <h6 className="workout-counts-header">Favorited</h6>
+                <p className="favorited-workout-count">{favoriteWorkouts.length}</p>
               </div>
             </div>
           </div>
