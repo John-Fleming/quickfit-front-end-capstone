@@ -9,4 +9,11 @@ const createWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts.json`, new
 
 const deleteSingleWorkout = (workoutId) => axios.delete(`${baseUrl}/workouts/${workoutId}.json`);
 
-export default { createWorkout, getSingleWorkout, deleteSingleWorkout };
+const updateFavoritedStatus = (workoutId, isFavorited) => axios.patch(`${baseUrl}/workouts/${workoutId}.json`, { isFavorited });
+
+export default {
+  createWorkout,
+  getSingleWorkout,
+  deleteSingleWorkout,
+  updateFavoritedStatus,
+};

@@ -24,6 +24,14 @@ class PostWorkout extends React.Component {
     this.setState({ isChecked: !this.state.isChecked });
   }
 
+  patchIsFavorited = () => {
+    const { isChecked } = this.state;
+    const { workoutId } = this.props.match.params;
+    workoutData.updateFavoritedStatus(workoutId, isChecked)
+      .then(() => this.props.history.push('/profile'))
+      .catch((err) => console.error('could not update favorites status: ', err));
+  }
+
   render() {
     const { isChecked } = this.state;
     return (
@@ -35,8 +43,8 @@ class PostWorkout extends React.Component {
           <label className="form-check-label" htmlFor="favorites-checkbox">Add to your favorites</label>
         </div>
         <div className="feedback-btns">
-          <Link className="btn btn-outline-dark" to='/home'>Skip to Home</Link>
-          <Link className="btn btn-outline-dark" to='/profile'>To Profile</Link>
+          <Link className="btn btn-outline-dark" to='/home'>Skip</Link>
+          <button className="btn btn-outline-dark" onClick={this.patchIsFavorited}>Save</button>
         </div>
       </div>
     );
