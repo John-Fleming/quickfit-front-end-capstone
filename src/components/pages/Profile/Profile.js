@@ -1,4 +1,6 @@
 import React from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import { Link } from 'react-router-dom';
 import './Profile.scss';
 
@@ -40,6 +42,11 @@ class Profile extends React.Component {
     this.getFavoriteWorkouts();
   }
 
+  logMeOut = (e) => {
+    e.preventDefault();
+    firebase.auth().signOut();
+  }
+
   render() {
     const {
       username,
@@ -70,6 +77,7 @@ class Profile extends React.Component {
         <div className="profile-btns d-flex flex-column col-10 offset-1">
           <Link className="btn btn-outline-dark mt-4" to='/home'>Start New Workout</Link>
           <Link className="btn btn-outline-dark mt-3" to='/favorites'>View Favorites</Link>
+          <button className="btn btn-outline-dark mt-3" onClick={this.logMeOut}>Logout</button>
         </div>
       </div>
     );

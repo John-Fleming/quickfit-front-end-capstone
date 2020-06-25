@@ -1,6 +1,4 @@
 import React from 'react';
-import firebase from 'firebase/app';
-import 'firebase/auth';
 import { NavLink as RRNavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -19,11 +17,6 @@ class MyNavbar extends React.Component {
     authed: PropTypes.bool.isRequired,
   }
 
-  logMeOut = (e) => {
-    e.preventDefault();
-    firebase.auth().signOut();
-  }
-
   render() {
     const { authed } = this.props;
 
@@ -36,11 +29,8 @@ class MyNavbar extends React.Component {
                 <NavItem className="mr-2">
                   <NavLink tag={RRNavLink} to="/favorites"><i className="far fa-bookmark"></i></NavLink>
                 </NavItem>
-                <NavItem className="mx-2">
-                  <NavLink tag={RRNavLink} to="/profile"><i className="fas fa-user-circle"></i></NavLink>
-                </NavItem>
                 <NavItem className="ml-2">
-                  <NavLink onClick={this.logMeOut}>Logout</NavLink>
+                  <NavLink tag={RRNavLink} to="/profile"><i className="fas fa-user-circle"></i></NavLink>
                 </NavItem>
               </Nav>
           </Navbar>
