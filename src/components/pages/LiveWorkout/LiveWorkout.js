@@ -1,22 +1,58 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import './LiveWorkout.scss';
 
-import workoutData from '../../../helpers/data/workoutData';
 import authData from '../../../helpers/data/authData';
 import completedWorkoutData from '../../../helpers/data/completedWorkoutData';
+import exerciseData from '../../../helpers/data/exerciseData';
+import workoutData from '../../../helpers/data/workoutData';
+import SingleExercise from '../../shared/SingleExercise/SingleExercise';
 
 const moment = require('moment');
 
 class LiveWorkout extends React.Component {
   state = {
     workout: {},
+    upperExercise: {},
+    lowerExercise: {},
+    coreExercise: {},
+    plyoExercise: {},
+  }
+
+  getSingleUpperExercise = (exerciseId) => {
+    exerciseData.getSingleExercise(exerciseId)
+      .then((resp) => this.setState({ upperExercise: resp.data }))
+      .catch((err) => console.error('Could not get specific upper exercise: ', err));
+  }
+
+  getSingleLowerExercise = (exerciseId) => {
+    exerciseData.getSingleExercise(exerciseId)
+      .then((resp) => this.setState({ lowerExercise: resp.data }))
+      .catch((err) => console.error('Could not get specific lower exercise: ', err));
+  }
+
+  getSingleCoreExercise = (exerciseId) => {
+    exerciseData.getSingleExercise(exerciseId)
+      .then((resp) => this.setState({ coreExercise: resp.data }))
+      .catch((err) => console.error('Could not get specific core exercise: ', err));
+  }
+
+  getSinglePlyoExercise = (exerciseId) => {
+    exerciseData.getSingleExercise(exerciseId)
+      .then((resp) => this.setState({ plyoExercise: resp.data }))
+      .catch((err) => console.error('Could not get specific plyo exercise: ', err));
   }
 
   componentDidMount() {
     const { workoutId } = this.props.match.params;
     workoutData.getSingleWorkout(workoutId)
-      .then((resp) => this.setState({ workout: resp.data }))
+      .then((resp) => {
+        const workout = resp.data;
+        this.setState({ workout });
+        this.getSingleUpperExercise(workout.upperExercise);
+        this.getSingleLowerExercise(workout.lowerExercise);
+        this.getSingleCoreExercise(workout.coreExercise);
+        this.getSinglePlyoExercise(workout.plyoExercise);
+      })
       .catch((err) => console.error('could not get specific workout: , err'));
   }
 
@@ -40,16 +76,32 @@ class LiveWorkout extends React.Component {
   }
 
   render() {
-    const { workout } = this.state;
+    const {
+      workout,
+      upperExercise,
+      lowerExercise,
+      coreExercise,
+      plyoExercise,
+    } = this.state;
+    const exerciseArr = [upperExercise, lowerExercise, coreExercise, plyoExercise];
+
+    const buildExerciseAccordion = exerciseArr.map((exercise, i) => <SingleExercise key={`workoutExercise${i}`} exercise={exercise} />);
+
     return (
       <div className="LiveWorkout">
         <h2>Your Workout</h2>
-        <div className="row">
+        <p>Complete the specified number of reps for each exercise one time each and repeat the circuit the specified number of sets.</p>
+        <div className="row excercise-counts mb-5">
           <p className="repsets"><strong>Reps:</strong> {workout.reps}</p>
           <p className="repsets"><strong>Sets:</strong> {workout.sets}</p>
         </div>
-        <button className="btn btn-outline-dark" onClick={this.cancelWorkout}>Cancel</button>
-        <button className="btn btn-outline-dark" onClick={this.postCompletedWorkout}>Finish</button>
+        <div id="exercisesAccordion">
+          {buildExerciseAccordion}
+        </div>
+        <div className="workout-btns mt-5">
+          <button className="btn btn-outline-dark" onClick={this.cancelWorkout}>Cancel</button>
+          <button className="btn btn-outline-dark" onClick={this.postCompletedWorkout}>Finish</button>
+        </div>
       </div>
     );
   }

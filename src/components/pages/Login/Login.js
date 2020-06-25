@@ -13,12 +13,12 @@ class Login extends React.Component {
   render() {
     return (
       <div className="Login mx-auto">
-        <div id="login-content">
+        <div className="logo d-flex justify-content-center">
           <span><i className="fas fa-running fa-5x"></i></span>
-          <h1 className="app-title">Workout App</h1>
-          <div id="login-btn">
-            <button className="btn btn-outline-dark btn-lg mt-3" onClick={this.loginClickEvent}>Login</button>
-          </div>
+        </div>
+        <h1 className="app-title">Workout App</h1>
+        <div id="login-btn" className="d-flex justify-content-center">
+          <button className="btn btn-outline-dark btn-lg mt-3" onClick={this.loginClickEvent}>Login</button>
         </div>
       </div>
     );
