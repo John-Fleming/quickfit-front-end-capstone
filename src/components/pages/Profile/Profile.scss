@@ -1,4 +1,21 @@
 .Profile {
   display: block;
   margin-top: 56px;
+  width: 100%;
+}
+
+.profile-card {
+  margin-top: 25px;
+  border: solid;
+  padding: 0;
+  &-left, &-right {
+    padding: 0;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.profile-btns {
+  padding: 0;
 }
