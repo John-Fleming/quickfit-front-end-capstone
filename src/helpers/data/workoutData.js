@@ -11,7 +11,9 @@ const getFavoriteWorkoutsByUid = (uid) => new Promise((resolve, reject) => {
       if (allWorkouts != null) {
         Object.keys(allWorkouts).forEach((wId) => {
           allWorkouts[wId].completeId = wId;
-          workouts.push(allWorkouts[wId]);
+          if (allWorkouts[wId].isFavorited) {
+            workouts.push(allWorkouts[wId]);
+          }
         });
       }
       resolve(workouts);
