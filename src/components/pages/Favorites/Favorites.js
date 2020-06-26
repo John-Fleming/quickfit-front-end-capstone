@@ -28,8 +28,8 @@ class Favorites extends React.Component {
     return (
       <div className="Favorites">
         <div className="favorites-header row col-10 offset-1">
-          <h2 className="mr-auto">Favorite Workouts</h2>
-          <Link className="btn btn-outline-dark ml-auto" to='/profile'>Back to profile</Link>
+          <Link className="btn mr-2 back-btn" to='/profile'><i className="fas fa-chevron-left"></i></Link>
+          <h2>Favorite Workouts</h2>
         </div>
         <div className="favorite-workouts-container col-10 offset-1">
           {buildFavWorkoutCards}
