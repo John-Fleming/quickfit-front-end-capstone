@@ -7,16 +7,16 @@ const getFavoriteWorkoutsByUid = (uid) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/workouts.json?orderBy="UID"&equalTo="${uid}"`)
     .then((resp) => {
       const allWorkouts = resp.data;
-      const workouts = [];
+      const favWorkouts = [];
       if (allWorkouts != null) {
         Object.keys(allWorkouts).forEach((wId) => {
-          allWorkouts[wId].completeId = wId;
+          allWorkouts[wId].id = wId;
           if (allWorkouts[wId].isFavorited) {
-            workouts.push(allWorkouts[wId]);
+            favWorkouts.push(allWorkouts[wId]);
           }
         });
       }
-      resolve(workouts);
+      resolve(favWorkouts);
     })
     .catch((err) => reject(err));
 });
