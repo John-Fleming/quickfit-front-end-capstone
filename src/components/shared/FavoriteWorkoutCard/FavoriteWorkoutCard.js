@@ -79,12 +79,10 @@ class FavoriteWorkoutCard extends React.Component {
     const { workout } = this.props;
 
     return (
-      <div className="FavoriteWorkoutCard">
-        <div className="card fav-workout-content">
-          <h6 className="mr-auto">{upperExercise} - {lowerExercise} - {coreExercise} - {plyoExercise}</h6>
-          <Link className="btn ml-auto" to={`/favorites/${workout.id}`}><i className="fas fa-search"></i></Link>
-        </div>
-      </div>
+      <Link className="FavoriteWorkoutCard btn btn-outline-dark py-2 text-center" to={`/favorites/${workout.id}`}>
+        {upperExercise} - {lowerExercise} - {coreExercise} - {plyoExercise}
+        <i className="fas fa-search ml-2"></i>
+      </Link>
     );
   }
 }
