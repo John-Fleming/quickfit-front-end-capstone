@@ -7,12 +7,31 @@ import {
   Card,
 } from 'reactstrap';
 
+import exerciseData from '../../../helpers/data/exerciseData';
+import exerciseTypeShape from '../../../helpers/propz/exerciseTypeShape';
+
 class ExerciseTypeBuilder extends React.Component {
+  static propTypes = {
+    type: exerciseTypeShape.exerciseTypeShape,
+  }
+
   state = {
     isOpen: false,
+    exercises: [],
   }
 
   toggle = () => this.setState({ isOpen: !this.state.isOpen });
+
+  getExercises = () => {
+    const { type } = this.props;
+    exerciseData.getExerciseByTypeId(type.id)
+      .then((resp) => this.setState({ exercises: resp }))
+      .catch((err) => console.error('could not get exercises by type: ', err));
+  }
+
+  componentDidMount() {
+    this.getExercises();
+  }
 
   render() {
     const { isOpen } = this.state;
