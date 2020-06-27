@@ -18,9 +18,14 @@ class ExerciseTypeBuilder extends React.Component {
   state = {
     isOpen: false,
     exercises: [],
+    selectedExercise: { },
   }
 
   toggle = () => this.setState({ isOpen: !this.state.isOpen });
+
+  exerciseChange = (e) => {
+    this.setState({ selectedExercise: e.target.value });
+  }
 
   getExercises = () => {
     const { type } = this.props;
@@ -34,8 +39,23 @@ class ExerciseTypeBuilder extends React.Component {
   }
 
   render() {
-    const { isOpen } = this.state;
+    const { isOpen, exercises, selectedExercise } = this.state;
     const { type } = this.props;
+
+    const buildRadioButtons = exercises.map((exercise) => (
+      <div className="form-check" key={exercise.id}>
+        <input
+        type="radio"
+        name={`${exercise.typeId}Exercises`}
+        id={exercise.id}
+        value={exercise.id}
+        className="form-check-input"
+        checked={selectedExercise === exercise.id}
+        onChange={this.exerciseChange}
+        />
+        <label htmlFor={exercise.id}>{exercise.exerciseName}</label>
+      </div>
+    ));
 
     return (
       <Card className="ExerciseTypeBuilder">
@@ -52,7 +72,9 @@ class ExerciseTypeBuilder extends React.Component {
 
         <Collapse isOpen={isOpen}>
           <CardBody>
-            radio buttons here
+          <div className="form">
+            {buildRadioButtons}
+          </div>
           </CardBody>
         </Collapse>
       </Card>
