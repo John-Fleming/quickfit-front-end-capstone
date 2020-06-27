@@ -128,7 +128,7 @@ class SingleFavorite extends React.Component {
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="favorites-sets-dropdown">Update default reps:</label>
+            <label htmlFor="favorites-sets-dropdown">Update default sets:</label>
             <select className="form-control" id="favorites-sets-dropdown" onChange={this.setsChange}>
               <option hidden>{workout.sets}</option>
               <option value="4">4</option>
