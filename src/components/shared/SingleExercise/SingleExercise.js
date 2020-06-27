@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Collapse,
-  Button,
   CardHeader,
   CardBody,
   Card,
@@ -27,12 +26,14 @@ class SingleExercise extends React.Component {
     return (
       <Card className="SingleExercise">
         <CardHeader onClick={this.toggle}>
-          <div className="row">
+          <div className="row single-exercise-content">
             <img src={exercise.diagram} alt="" className="mr-5"/>
-            <h2 className="mb-0">{exercise.exerciseName}</h2>
-            <Button onClick={this.toggle} className="ml-auto">
+            <div className="d-flex align-items-center">
+              <h2 className="mb-0">{exercise.exerciseName}</h2>
+            </div>
+            <button onClick={this.toggle} className="btn ml-auto">
               <i className="fas fa-chevron-down"></i>
-            </Button>
+            </button>
           </div>
         </CardHeader>
 
