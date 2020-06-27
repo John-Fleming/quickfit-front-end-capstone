@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Alert } from 'reactstrap';
 import './SingleFavorite.scss';
 
 import exerciseData from '../../../helpers/data/exerciseData';
@@ -9,10 +10,29 @@ import SingleExercise from '../../shared/SingleExercise/SingleExercise';
 class SingleFavorite extends React.Component {
   state = {
     workout: {},
+    workoutReps: '',
+    workoutSets: '',
     upperExercise: {},
     lowerExercise: {},
     coreExercise: {},
     plyoExercise: {},
+    isOpen: false,
+  }
+
+  toggle = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  }
+
+  repsChange = (e) => {
+    e.preventDefault();
+    const newReps = e.target.value * 1;
+    this.setState({ workoutReps: newReps });
+  }
+
+  setsChange = (e) => {
+    e.preventDefault();
+    const newSets = e.target.value * 1;
+    this.setState({ workoutSets: newSets });
   }
 
   getSingleUpperExercise = (exerciseId) => {
@@ -44,7 +64,7 @@ class SingleFavorite extends React.Component {
     workoutData.getSingleWorkout(workoutId)
       .then((resp) => {
         const workout = resp.data;
-        this.setState({ workout });
+        this.setState({ workout, workoutReps: workout.reps, workoutSets: workout.sets });
         this.getSingleUpperExercise(workout.upperExercise);
         this.getSingleLowerExercise(workout.lowerExercise);
         this.getSingleCoreExercise(workout.coreExercise);
@@ -61,6 +81,14 @@ class SingleFavorite extends React.Component {
       .catch((err) => console.error('could not update favorites status: ', err));
   }
 
+  patchRepSets = () => {
+    const { workoutId } = this.props.match.params;
+    const { workoutReps, workoutSets } = this.state;
+    workoutData.updateRepsAndSets(workoutId, workoutReps, workoutSets)
+      .then(() => this.toggle)
+      .catch((err) => console.error('could not update reps or sets: ', err));
+  }
+
   render() {
     const {
       workout,
@@ -68,6 +96,7 @@ class SingleFavorite extends React.Component {
       lowerExercise,
       coreExercise,
       plyoExercise,
+      isOpen,
     } = this.state;
     const { workoutId } = this.props.match.params;
     const workoutLink = `/workout/${workoutId}`;
@@ -81,15 +110,44 @@ class SingleFavorite extends React.Component {
           <h2>Favorited Workouts</h2>
         </div>
         <div className="row excercise-counts mb-5">
-          <p className="repsets"><strong>Reps:</strong> {workout.reps}</p>
-          <p className="repsets"><strong>Sets:</strong> {workout.sets}</p>
+          <div className="form-group mr-3">
+            <label htmlFor="favorites-reps-dropdown">Update default reps:</label>
+            <select className="form-control" id="favorites-reps-dropdown" onChange={this.repsChange}>
+              <option hidden>{workout.reps}</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="favorites-sets-dropdown">Update default reps:</label>
+            <select className="form-control" id="favorites-sets-dropdown" onChange={this.setsChange}>
+              <option hidden>{workout.sets}</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
         </div>
         <div id="exercisesAccordion">
           {buildExerciseAccordion}
         </div>
-        <Link className="btn btn-outline-dark" to='/profile' onClick={this.patchIsFavorited}>Unfavorite</Link>
-        <button className="btn btn-outline-dark" >Save</button>
-        <Link className="btn btn-outline-dark" to={workoutLink}>To Live Workout</Link>
+        <div className="favorites-btns">
+          <Link className="btn btn-outline-dark" to='/profile' onClick={this.patchIsFavorited}>Unfavorite</Link>
+          <button className="btn btn-outline-dark" onClick={this.patchRepSets}>Save</button>
+          <Link className="btn btn-outline-dark" to={workoutLink}>To Live Workout</Link>
+        </div>
+        <Alert color="success" isOpen={isOpen}>
+          Workout updated successfully!
+        </Alert>
       </div>
     );
   }
