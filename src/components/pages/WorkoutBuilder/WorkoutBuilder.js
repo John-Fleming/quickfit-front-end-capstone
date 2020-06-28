@@ -5,13 +5,14 @@ import './WorkoutBuilder.scss';
 import exerciseTypeData from '../../../helpers/data/exerciseTypeData';
 
 import ExerciseTypeBuilder from '../../shared/ExerciseTypeBuilder/ExerciseTypeBuilder';
+import exerciseData from '../../../helpers/data/exerciseData';
 
 class WorkoutBuilder extends React.Component {
   state = {
-    upperExercise: '',
-    lowerExercise: '',
-    coreExercise: '',
-    plyoExercise: '',
+    selectedUpperExercise: '',
+    selectedLowerExercise: '',
+    selectedCoreExercise: '',
+    selectedPlyoExercise: '',
     reps: '',
     sets: '',
     exerciseTypes: [],
@@ -30,6 +31,26 @@ class WorkoutBuilder extends React.Component {
     this.setState({ sets });
   }
 
+  setSelectedExercises = (exerciseId) => {
+    const { exercises } = this.state;
+    const exerciseType = exercises.find((x) => x.id === exerciseId).typeId;
+    if (exerciseType === 'exerciseType1') {
+      this.setState({ selectedUpperExercise: exerciseId });
+    } else if (exerciseType === 'exerciseType2') {
+      this.setState({ selectedLowerExercise: exerciseId });
+    } else if (exerciseType === 'exerciseType3') {
+      this.setState({ selectedCoreExercise: exerciseId });
+    } else {
+      this.setState({ selectedPlyoExercise: exerciseId });
+    }
+  }
+
+  setAllExercises = () => {
+    exerciseData.getAllExercises()
+      .then((resp) => this.setState({ exercises: resp }))
+      .catch((err) => console.error('could not get exercises array: ', err));
+  }
+
   setExerciseTypes = () => {
     exerciseTypeData.getExerciseTypes()
       .then((resp) => this.setState({ exerciseTypes: resp }))
@@ -38,11 +59,12 @@ class WorkoutBuilder extends React.Component {
 
   componentDidMount() {
     this.setExerciseTypes();
+    this.setAllExercises();
   }
 
   render() {
     const { exerciseTypes } = this.state;
-    const buildAccordions = exerciseTypes.map((type) => <ExerciseTypeBuilder key={type.id} type={type} />);
+    const buildAccordions = exerciseTypes.map((type) => <ExerciseTypeBuilder key={type.id} type={type} setSelectedExercises={this.setSelectedExercises}/>);
 
     return (
       <div className="WorkoutBuilder">

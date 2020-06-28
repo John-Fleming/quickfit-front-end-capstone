@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ExerciseTypeBuilder.scss';
 import {
   Collapse,
@@ -13,18 +14,22 @@ import exerciseTypeShape from '../../../helpers/propz/exerciseTypeShape';
 class ExerciseTypeBuilder extends React.Component {
   static propTypes = {
     type: exerciseTypeShape.exerciseTypeShape,
+    setSelectedExercises: PropTypes.func.isRequired,
   }
 
   state = {
     isOpen: false,
     exercises: [],
-    selectedExercise: { },
+    selectedExercise: '',
   }
 
   toggle = () => this.setState({ isOpen: !this.state.isOpen });
 
   exerciseChange = (e) => {
-    this.setState({ selectedExercise: e.target.value });
+    const { setSelectedExercises } = this.props;
+    const exerciseId = e.target.value;
+    this.setState({ selectedExercise: exerciseId });
+    setSelectedExercises(exerciseId);
   }
 
   getExercises = () => {
