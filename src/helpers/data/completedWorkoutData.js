@@ -21,4 +21,6 @@ const getCompletedWorkoutsByUid = (uid) => new Promise((resolve, reject) => {
 
 const createCompletedWorkout = (newCompletedWorkout) => axios.post(`${baseUrl}/completedWorkouts.json`, newCompletedWorkout);
 
-export default { createCompletedWorkout, getCompletedWorkoutsByUid };
+const deleteCompletedWorkout = (id) => axios.delete(`${baseUrl}/completedWorkouts/${id}.json`);
+
+export default { createCompletedWorkout, getCompletedWorkoutsByUid, deleteCompletedWorkout };

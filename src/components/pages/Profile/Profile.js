@@ -42,6 +42,37 @@ class Profile extends React.Component {
     this.getFavoriteWorkouts();
   }
 
+  deleteAllWorkouts = (workoutId) => {
+    workoutData.deleteSingleWorkout(workoutId)
+      .then()
+      .catch((err) => console.error('could not delete workouts: ', err));
+  };
+
+  deleteCompletedWorkouts = (completedWorkoutId) => {
+    completedWorkoutData.deleteCompletedWorkout(completedWorkoutId)
+      .then()
+      .catch((err) => console.error('could not delete completed workouts: ', err));
+  };
+
+  deleteWorkoutHistory = (e) => {
+    e.preventDefault();
+    const { completedWorkouts } = this.state;
+    const uid = authData.getUid();
+    completedWorkouts.forEach((workout) => {
+      const { workoutId } = workout;
+      const completedWorkoutId = workout.completeId;
+      this.deleteAllWorkouts(workoutId);
+      this.deleteCompletedWorkouts(completedWorkoutId);
+    });
+    // this function gets any other remaining workouts associated with the user and deletes them
+    workoutData.getAllWorkoutsByUid(uid)
+      .then((resp) => {
+        const uncompletedUserWorkouts = resp;
+        uncompletedUserWorkouts.forEach((workout) => this.deleteAllWorkouts(workout.id));
+      })
+      .catch((err) => console.error('could not get favorite workouts: ', err));
+  }
+
   logMeOut = (e) => {
     e.preventDefault();
     firebase.auth().signOut();
@@ -77,6 +108,7 @@ class Profile extends React.Component {
         <div className="profile-btns d-flex flex-column col-10 offset-1">
           <Link className="btn btn-outline-dark mt-4" to='/home'>Start New Workout</Link>
           <Link className="btn btn-outline-dark mt-3" to='/favorites'>View Favorites</Link>
+          <button className="btn btn-outline-dark mt-3" onClick={this.deleteWorkoutHistory}>Delete Workout History</button>
           <button className="btn btn-outline-dark mt-3" onClick={this.logMeOut}>Logout</button>
         </div>
       </div>
