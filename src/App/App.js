@@ -80,10 +80,6 @@ class App extends React.Component {
             </div>
           </React.Fragment>
         </BrowserRouter>
-        {/* { authed
-          ? <Home />
-          : <Login authed={authed} />
-        } */}
       </div>
     );
   }

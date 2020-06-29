@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ExerciseTypeBuilder.scss';
 import {
   Collapse,
@@ -7,21 +8,81 @@ import {
   Card,
 } from 'reactstrap';
 
+import exerciseData from '../../../helpers/data/exerciseData';
+import exerciseTypeShape from '../../../helpers/propz/exerciseTypeShape';
+
 class ExerciseTypeBuilder extends React.Component {
+  static propTypes = {
+    type: exerciseTypeShape.exerciseTypeShape,
+    setSelectedExercises: PropTypes.func.isRequired,
+  }
+
   state = {
     isOpen: false,
+    exercises: [],
+    selectedExerciseId: '',
+    selectedExercise: {},
+    isSelected: false,
   }
 
   toggle = () => this.setState({ isOpen: !this.state.isOpen });
 
-  render() {
-    const { isOpen } = this.state;
+  exerciseChange = (e) => {
+    const { exercises } = this.state;
+    const { setSelectedExercises } = this.props;
+    const exerciseId = e.target.value;
+    const selectedExercise = exercises.find((x) => x.id === exerciseId);
+    this.setState({ selectedExerciseId: exerciseId, selectedExercise, isSelected: true });
+    setSelectedExercises(exerciseId);
+  }
+
+  getExercises = () => {
     const { type } = this.props;
+    exerciseData.getExerciseByTypeId(type.id)
+      .then((resp) => this.setState({ exercises: resp }))
+      .catch((err) => console.error('could not get exercises by type: ', err));
+  }
+
+  componentDidMount() {
+    this.getExercises();
+  }
+
+  render() {
+    const {
+      isOpen,
+      exercises,
+      selectedExerciseId,
+      selectedExercise,
+      isSelected,
+    } = this.state;
+    const { type } = this.props;
+
+    const buildRadioButtons = exercises.map((exercise) => (
+      <div className="form-check" key={exercise.id}>
+        <input
+        type="radio"
+        name={`${exercise.typeId}Exercises`}
+        id={exercise.id}
+        value={exercise.id}
+        className="form-check-input"
+        checked={selectedExerciseId === exercise.id}
+        onChange={this.exerciseChange}
+        />
+        <label htmlFor={exercise.id}>{exercise.exerciseName}</label>
+      </div>
+    ));
+
+    const buildExercisePreview = () => (
+        <div className="col-9">
+          <img src={selectedExercise.diagram} alt="selected exercise diagram" className="img-fluid"/>
+          <p>{selectedExercise.description}</p>
+        </div>
+    );
 
     return (
       <Card className="ExerciseTypeBuilder">
         <CardHeader onClick={this.toggle}>
-          <div className="row exercise-builder-content">
+          <div className="row exercise-builder-header">
             <div className="d-flex align-items-center">
               <h2 className="mb-0">Select Your {type.name} Exercise</h2>
             </div>
@@ -33,7 +94,15 @@ class ExerciseTypeBuilder extends React.Component {
 
         <Collapse isOpen={isOpen}>
           <CardBody>
-            radio buttons here
+            <div className="row exercise-builder-content">
+              <div className="form col-3 d-flex flex-column justify-content-center">
+                {buildRadioButtons}
+              </div>
+              { isSelected
+                ? buildExercisePreview()
+                : <div></div>
+                }
+            </div>
           </CardBody>
         </Collapse>
       </Card>

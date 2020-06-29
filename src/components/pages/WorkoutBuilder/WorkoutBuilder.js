@@ -2,16 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './WorkoutBuilder.scss';
 
+import authData from '../../../helpers/data/authData';
+import exerciseData from '../../../helpers/data/exerciseData';
 import exerciseTypeData from '../../../helpers/data/exerciseTypeData';
 
 import ExerciseTypeBuilder from '../../shared/ExerciseTypeBuilder/ExerciseTypeBuilder';
+import workoutData from '../../../helpers/data/workoutData';
 
 class WorkoutBuilder extends React.Component {
   state = {
-    upperExercise: '',
-    lowerExercise: '',
-    coreExercise: '',
-    plyoExercise: '',
+    selectedUpperExercise: '',
+    selectedLowerExercise: '',
+    selectedCoreExercise: '',
+    selectedPlyoExercise: '',
     reps: '',
     sets: '',
     exerciseTypes: [],
@@ -30,6 +33,26 @@ class WorkoutBuilder extends React.Component {
     this.setState({ sets });
   }
 
+  setSelectedExercises = (exerciseId) => {
+    const { exercises } = this.state;
+    const exerciseType = exercises.find((x) => x.id === exerciseId).typeId;
+    if (exerciseType === 'exerciseType1') {
+      this.setState({ selectedUpperExercise: exerciseId });
+    } else if (exerciseType === 'exerciseType2') {
+      this.setState({ selectedLowerExercise: exerciseId });
+    } else if (exerciseType === 'exerciseType3') {
+      this.setState({ selectedCoreExercise: exerciseId });
+    } else {
+      this.setState({ selectedPlyoExercise: exerciseId });
+    }
+  }
+
+  setAllExercises = () => {
+    exerciseData.getAllExercises()
+      .then((resp) => this.setState({ exercises: resp }))
+      .catch((err) => console.error('could not get exercises array: ', err));
+  }
+
   setExerciseTypes = () => {
     exerciseTypeData.getExerciseTypes()
       .then((resp) => this.setState({ exerciseTypes: resp }))
@@ -38,11 +61,41 @@ class WorkoutBuilder extends React.Component {
 
   componentDidMount() {
     this.setExerciseTypes();
+    this.setAllExercises();
+  }
+
+  submitCustomWorkout = () => {
+    const {
+      selectedUpperExercise,
+      selectedLowerExercise,
+      selectedCoreExercise,
+      selectedPlyoExercise,
+      reps,
+      sets,
+    } = this.state;
+
+    const newCustomWorkout = {
+      upperExercise: selectedUpperExercise,
+      lowerExercise: selectedLowerExercise,
+      coreExercise: selectedCoreExercise,
+      plyoExercise: selectedPlyoExercise,
+      reps,
+      sets,
+      isFavorited: false,
+      UID: authData.getUid(),
+    };
+
+    workoutData.createWorkout(newCustomWorkout)
+      .then((resp) => {
+        const workoutId = resp.data.name;
+        this.props.history.push(`/workout/${workoutId}`);
+      })
+      .catch((err) => console.error('could not create custom workout: ', err));
   }
 
   render() {
     const { exerciseTypes } = this.state;
-    const buildAccordions = exerciseTypes.map((type) => <ExerciseTypeBuilder key={type.id} type={type} />);
+    const buildAccordions = exerciseTypes.map((type) => <ExerciseTypeBuilder key={type.id} type={type} setSelectedExercises={this.setSelectedExercises}/>);
 
     return (
       <div className="WorkoutBuilder">
@@ -78,7 +131,7 @@ class WorkoutBuilder extends React.Component {
         </div>
         <div className="custom-workout-btns mt-4">
           <Link className="btn btn-outline-dark"to='/home'>Cancel to Home</Link>
-          <Link className="btn btn-outline-dark" to='/workout/:workoutId'>To Live Workout</Link>
+          <button className="btn btn-outline-dark" onClick={this.submitCustomWorkout} to='/workout/:workoutId'>To Live Workout</button>
         </div>
       </div>
     );
