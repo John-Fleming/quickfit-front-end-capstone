@@ -32,7 +32,6 @@ class ExerciseTypeBuilder extends React.Component {
     const { setSelectedExercises } = this.props;
     const exerciseId = e.target.value;
     const selectedExercise = exercises.find((x) => x.id === exerciseId);
-    // this.setState({ selectedExerciseId: exerciseId });
     this.setState({ selectedExerciseId: exerciseId, selectedExercise, isSelected: true });
     setSelectedExercises(exerciseId);
   }
@@ -49,7 +48,12 @@ class ExerciseTypeBuilder extends React.Component {
   }
 
   render() {
-    const { isOpen, exercises, selectedExerciseId } = this.state;
+    const {
+      isOpen,
+      exercises,
+      selectedExerciseId,
+      selectedExercise,
+    } = this.state;
     const { type } = this.props;
 
     const buildRadioButtons = exercises.map((exercise) => (
@@ -70,7 +74,7 @@ class ExerciseTypeBuilder extends React.Component {
     return (
       <Card className="ExerciseTypeBuilder">
         <CardHeader onClick={this.toggle}>
-          <div className="row exercise-builder-content">
+          <div className="row exercise-builder-header">
             <div className="d-flex align-items-center">
               <h2 className="mb-0">Select Your {type.name} Exercise</h2>
             </div>
@@ -82,9 +86,15 @@ class ExerciseTypeBuilder extends React.Component {
 
         <Collapse isOpen={isOpen}>
           <CardBody>
-          <div className="form">
-            {buildRadioButtons}
-          </div>
+            <div className="row exercise-builder-content">
+              <div className="form col-3">
+                {buildRadioButtons}
+              </div>
+              <div className="col-9">
+                <img src={selectedExercise.diagram} alt="selected exercise diagram" className="img-fluid"/>
+                <p>{selectedExercise.description}</p>
+              </div>
+            </div>
           </CardBody>
         </Collapse>
       </Card>
