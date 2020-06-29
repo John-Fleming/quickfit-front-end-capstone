@@ -57,12 +57,20 @@ class Profile extends React.Component {
   deleteWorkoutHistory = (e) => {
     e.preventDefault();
     const { completedWorkouts } = this.state;
+    const uid = authData.getUid();
     completedWorkouts.forEach((workout) => {
       const { workoutId } = workout;
       const completedWorkoutId = workout.completeId;
       this.deleteAllWorkouts(workoutId);
       this.deleteCompletedWorkouts(completedWorkoutId);
     });
+    // this function gets any other remaining workouts associated with the user and deletes them
+    workoutData.getAllWorkoutsByUid(uid)
+      .then((resp) => {
+        const uncompletedUserWorkouts = resp;
+        uncompletedUserWorkouts.forEach((workout) => this.deleteAllWorkouts(workout.id));
+      })
+      .catch((err) => console.error('could not get favorite workouts: ', err));
   }
 
   logMeOut = (e) => {

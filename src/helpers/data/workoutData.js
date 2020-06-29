@@ -3,6 +3,22 @@ import firebaseConfig from '../apiKeys.json';
 
 const baseUrl = firebaseConfig.firebaseKeys.databaseURL;
 
+const getAllWorkoutsByUid = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/workouts.json?orderBy="UID"&equalTo="${uid}"`)
+    .then((resp) => {
+      const allWorkouts = resp.data;
+      const workouts = [];
+      if (allWorkouts != null) {
+        Object.keys(allWorkouts).forEach((wId) => {
+          allWorkouts[wId].id = wId;
+          workouts.push(allWorkouts[wId]);
+        });
+      }
+      resolve(workouts);
+    })
+    .catch((err) => reject(err));
+});
+
 const getFavoriteWorkoutsByUid = (uid) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/workouts.json?orderBy="UID"&equalTo="${uid}"`)
     .then((resp) => {
@@ -32,6 +48,7 @@ const updateRepsAndSets = (workoutId, reps, sets) => axios.patch(`${baseUrl}/wor
 const deleteSingleWorkout = (workoutId) => axios.delete(`${baseUrl}/workouts/${workoutId}.json`);
 
 export default {
+  getAllWorkoutsByUid,
   getFavoriteWorkoutsByUid,
   getSingleWorkout,
   createWorkout,
