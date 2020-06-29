@@ -25,17 +25,17 @@ const getSingleWorkout = (workoutId) => axios.get(`${baseUrl}/workouts/${workout
 
 const createWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts.json`, newWorkout);
 
-const deleteSingleWorkout = (workoutId) => axios.delete(`${baseUrl}/workouts/${workoutId}.json`);
-
 const updateFavoritedStatus = (workoutId, isFavorited) => axios.patch(`${baseUrl}/workouts/${workoutId}.json`, { isFavorited });
 
 const updateRepsAndSets = (workoutId, reps, sets) => axios.patch(`${baseUrl}/workouts/${workoutId}.json`, { reps, sets });
+
+const deleteSingleWorkout = (workoutId) => axios.delete(`${baseUrl}/workouts/${workoutId}.json`);
 
 export default {
   getFavoriteWorkoutsByUid,
   getSingleWorkout,
   createWorkout,
-  deleteSingleWorkout,
   updateFavoritedStatus,
   updateRepsAndSets,
+  deleteSingleWorkout,
 };
