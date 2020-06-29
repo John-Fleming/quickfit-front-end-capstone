@@ -20,15 +20,20 @@ class ExerciseTypeBuilder extends React.Component {
   state = {
     isOpen: false,
     exercises: [],
-    selectedExercise: '',
+    selectedExerciseId: '',
+    selectedExercise: {},
+    isSelected: false,
   }
 
   toggle = () => this.setState({ isOpen: !this.state.isOpen });
 
   exerciseChange = (e) => {
+    const { exercises } = this.state;
     const { setSelectedExercises } = this.props;
     const exerciseId = e.target.value;
-    this.setState({ selectedExercise: exerciseId });
+    const selectedExercise = exercises.find((x) => x.id === exerciseId);
+    // this.setState({ selectedExerciseId: exerciseId });
+    this.setState({ selectedExerciseId: exerciseId, selectedExercise, isSelected: true });
     setSelectedExercises(exerciseId);
   }
 
@@ -44,7 +49,7 @@ class ExerciseTypeBuilder extends React.Component {
   }
 
   render() {
-    const { isOpen, exercises, selectedExercise } = this.state;
+    const { isOpen, exercises, selectedExerciseId } = this.state;
     const { type } = this.props;
 
     const buildRadioButtons = exercises.map((exercise) => (
@@ -55,7 +60,7 @@ class ExerciseTypeBuilder extends React.Component {
         id={exercise.id}
         value={exercise.id}
         className="form-check-input"
-        checked={selectedExercise === exercise.id}
+        checked={selectedExerciseId === exercise.id}
         onChange={this.exerciseChange}
         />
         <label htmlFor={exercise.id}>{exercise.exerciseName}</label>
