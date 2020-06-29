@@ -53,6 +53,7 @@ class ExerciseTypeBuilder extends React.Component {
       exercises,
       selectedExerciseId,
       selectedExercise,
+      isSelected,
     } = this.state;
     const { type } = this.props;
 
@@ -71,6 +72,13 @@ class ExerciseTypeBuilder extends React.Component {
       </div>
     ));
 
+    const buildExercisePreview = () => (
+        <div className="col-9">
+          <img src={selectedExercise.diagram} alt="selected exercise diagram" className="img-fluid"/>
+          <p>{selectedExercise.description}</p>
+        </div>
+    );
+
     return (
       <Card className="ExerciseTypeBuilder">
         <CardHeader onClick={this.toggle}>
@@ -87,13 +95,13 @@ class ExerciseTypeBuilder extends React.Component {
         <Collapse isOpen={isOpen}>
           <CardBody>
             <div className="row exercise-builder-content">
-              <div className="form col-3">
+              <div className="form col-3 d-flex flex-column justify-content-center">
                 {buildRadioButtons}
               </div>
-              <div className="col-9">
-                <img src={selectedExercise.diagram} alt="selected exercise diagram" className="img-fluid"/>
-                <p>{selectedExercise.description}</p>
-              </div>
+              { isSelected
+                ? buildExercisePreview()
+                : <div></div>
+                }
             </div>
           </CardBody>
         </Collapse>
