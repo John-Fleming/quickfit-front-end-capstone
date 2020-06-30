@@ -1,10 +1,10 @@
 import React from 'react';
 import {
   Collapse,
-  CardHeader,
   CardBody,
   Card,
 } from 'reactstrap';
+import './SingleExercise.scss';
 
 import exerciseShape from '../../../helpers/propz/exerciseShape';
 
@@ -24,22 +24,22 @@ class SingleExercise extends React.Component {
     const { exercise } = this.props;
 
     return (
-      <Card className="SingleExercise">
-        <CardHeader onClick={this.toggle}>
-          <div className="row single-exercise-content">
-            <img src={exercise.diagram} alt="" className="mr-5"/>
-            <div className="d-flex align-items-center">
-              <h2 className="mb-0">{exercise.exerciseName}</h2>
-            </div>
-            <button onClick={this.toggle} className="btn ml-auto">
-              <i className="fas fa-chevron-down"></i>
-            </button>
+      <Card className={`SingleExercise text-center ${exercise.typeId}`} onClick={this.toggle}>
+        <div className="closed-card single-exercise-content">
+          <div className="row">
+            <h2 className="mx-auto">{exercise.exerciseName}</h2>
           </div>
-        </CardHeader>
+          <button onClick={this.toggle} className="btn row">
+            <i className="fas fa-chevron-down"></i>
+          </button>
+        </div>
 
         <Collapse isOpen={isOpen}>
           <CardBody>
-            {exercise.description}
+            <div className="exercise-diagram">
+              <img src={exercise.diagram} alt="exercise diagram" className="img-fluid"/>
+            </div>
+            <p className="exercise-description">{exercise.description}</p>
           </CardBody>
         </Collapse>
       </Card>

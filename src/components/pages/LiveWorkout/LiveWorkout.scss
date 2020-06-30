@@ -1,13 +1,22 @@
+@import '../../../styles/variables';
+
 .LiveWorkout {
   display: block;
   margin-top: 56px;
   width: 100%;
+  min-height: 100vh;
+  background-color: $brand-black;
 }
 
-.excercise-counts {
-  margin: 0;
+.workout-header {
+  text-align: center;
+  line-height: .5;
+  padding: 25px 0;
+  color: white;
 }
 
-.repsets {
-  margin-right: .5rem
+.workout-btns {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10% 35px;
 }

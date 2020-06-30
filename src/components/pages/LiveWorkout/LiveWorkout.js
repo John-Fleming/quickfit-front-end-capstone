@@ -89,18 +89,17 @@ class LiveWorkout extends React.Component {
 
     return (
       <div className="LiveWorkout">
-        <h2>Your Workout</h2>
-        <p>Complete the specified number of reps for each exercise one time each and repeat the circuit the specified number of sets.</p>
-        <div className="row excercise-counts mb-5">
-          <p className="repsets"><strong>Reps:</strong> {workout.reps}</p>
-          <p className="repsets"><strong>Sets:</strong> {workout.sets}</p>
+        <div className="workout-header">
+          <h2>Your Workout</h2>
+          <p>Perform <strong>{workout.reps} Reps</strong> of each exercise</p>
+          <p>Repeat for <strong>{workout.sets} Sets</strong></p>
         </div>
-        <div id="exercisesAccordion">
+        <div id="exercises-accordion">
           {buildExerciseAccordion}
         </div>
         <div className="workout-btns mt-5">
-          <button className="btn btn-outline-dark" onClick={this.cancelWorkout}>Cancel</button>
-          <button className="btn btn-outline-dark" onClick={this.postCompletedWorkout}>Finish</button>
+          <button className="btn btn-outline-light btn-lg" onClick={this.cancelWorkout}>Cancel</button>
+          <button className="btn btn-outline-light btn-lg" onClick={this.postCompletedWorkout}>Finish</button>
         </div>
       </div>
     );
