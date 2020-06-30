@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import {
   Navbar,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -24,7 +23,7 @@ class MyNavbar extends React.Component {
       return (
         <div className="MyNavbar">
           <Navbar color="light" light fixed="top">
-            <NavbarBrand href="/" className="brand-header"><i className="fas fa-running"></i> Workout App</NavbarBrand>
+            <NavLink tag={RRNavLink} to="/home" className="brand-header navbar-brand"><i className="fas fa-running"></i> Workout App</NavLink>
               <Nav className="ml-auto flex-row" navbar>
                 <NavItem className="mr-2">
                   <NavLink tag={RRNavLink} to="/favorites"><i className="far fa-bookmark"></i></NavLink>
