@@ -1,8 +1,16 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
+@import 'fonts';
 @import 'variables';
 
 body {
   background-color: white;
+  font-family: 'Dosis';
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Josefin Sans';
+  font-style: italic;
+  text-transform: uppercase;
 }
