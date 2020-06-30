@@ -4,10 +4,14 @@
   width: 100%;
 }
 
-.excercise-counts {
-  margin: 0;
+.workout-header {
+  text-align: center;
+  line-height: .5;
+  padding: 25px 0;
 }
 
-.repsets {
-  margin-right: .5rem
+.workout-btns {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20% 35px;
 }
