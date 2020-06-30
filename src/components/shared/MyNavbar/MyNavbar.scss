@@ -1,3 +1,10 @@
+@import '../../../styles/fonts';
+
 .MyNavbar {
   display: block;
+}
+
+.brand-header {
+  font-family: 'Josefin Sans';
+  font-style: italic;
 }

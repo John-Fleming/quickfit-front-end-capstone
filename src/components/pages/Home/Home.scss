@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .Home {
   display: block;
   margin-top: 56px;
@@ -6,22 +8,30 @@
 }
 
 #quick-start-mode, #custom-workout-mode {
-  height: calc(75vh - 50px);
+  height: calc(100vh - 56px);
   position: relative;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
   .hero-content {
     position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .mode-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 8%;
+    left: 5%;
+    padding: .5rem 1rem;
+    background-color: rgba(169, 169, 169, 0.212);
+    .home-header {
+      font-size: 3.5rem;
+      margin-bottom: 0;
+    }
+    hr {
+      border-bottom: 2px solid white;
+      margin-top: 0;
+    }
+    .breaker2 {
+      width: 80%;
+      margin-left: 0;
+    }
   }
 }
 
@@ -30,7 +40,6 @@
 }
 
 #custom-workout-mode {
-  margin-top: 25px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.imgur.com/B3QAiyg.jpg");
 }
 
@@ -44,5 +53,8 @@
     }
     #custom-workout-mode {
       background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.imgur.com/j5Da6py.jpg");
+    }
+    .hero-content {
+      max-width: 90%;
     }
 }
