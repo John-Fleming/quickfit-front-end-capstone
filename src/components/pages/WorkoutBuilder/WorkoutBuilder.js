@@ -130,8 +130,8 @@ class WorkoutBuilder extends React.Component {
           {buildAccordions}
         </div>
         <div className="custom-workout-btns mt-4">
-          <Link className="btn btn-outline-dark"to='/home'>Cancel to Home</Link>
-          <button className="btn btn-outline-dark" onClick={this.submitCustomWorkout} to='/workout/:workoutId'>To Live Workout</button>
+          <Link className="btn btn-outline-dark"to='/home'>Cancel</Link>
+          <button className="btn btn-outline-dark" onClick={this.submitCustomWorkout} to='/workout/:workoutId'>Start</button>
         </div>
       </div>
     );
