@@ -98,8 +98,8 @@ class LiveWorkout extends React.Component {
           {buildExerciseAccordion}
         </div>
         <div className="workout-btns mt-5">
-          <button className="btn btn-outline-dark btn-lg" onClick={this.cancelWorkout}>Cancel</button>
-          <button className="btn btn-outline-dark btn-lg" onClick={this.postCompletedWorkout}>Finish</button>
+          <button className="btn btn-outline-light btn-lg" onClick={this.cancelWorkout}>Cancel</button>
+          <button className="btn btn-outline-light btn-lg" onClick={this.postCompletedWorkout}>Finish</button>
         </div>
       </div>
     );

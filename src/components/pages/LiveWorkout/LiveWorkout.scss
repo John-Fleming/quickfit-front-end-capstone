@@ -1,17 +1,22 @@
+@import '../../../styles/variables';
+
 .LiveWorkout {
   display: block;
   margin-top: 56px;
   width: 100%;
+  min-height: 100vh;
+  background-color: $brand-black;
 }
 
 .workout-header {
   text-align: center;
   line-height: .5;
   padding: 25px 0;
+  color: white;
 }
 
 .workout-btns {
   display: flex;
   justify-content: space-around;
-  padding: 0 20% 35px;
+  padding: 0 10% 35px;
 }

@@ -2,21 +2,37 @@
 
 .SingleExercise {
   display: block;
-  padding: 25px 20%;
+  padding: 25px 10%;
+  min-height: 25vh;
+  h2 {
+    font-size: 2.5rem;
+  }
+  .single-exercise-content {
+    padding: 35px 0 25px;
+  }
+  .exercise-description {
+    margin-top: 1.2rem
+  }
+}
+
+// CARD COLORS
+
+@mixin exercise-colors($bg, $text) {
+  background-color: $bg;
+  h2, i, p {
+    color: $text;
+  }
 }
 
 .exerciseType1 {
-  background-color: $brand-green;
-  h2, i {
-    color: $brand-gold;
-  }
+  @include exercise-colors($brand-green, $brand-gold);
 }
 .exerciseType2 {
-  background-color: $brand-gold;
+  @include exercise-colors($brand-gold, $brand-black);
 }
 .exerciseType3 {
-  background-color: $brand-blue;
+  @include exercise-colors($brand-blue, $brand-pink);
 }
 .exerciseType4 {
-  background-color: $brand-pink;
+  @include exercise-colors($brand-pink, $brand-blue);
 }
