@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .Home {
   display: block;
   margin-top: 56px;
@@ -32,7 +34,6 @@
     }
   }
 }
-
 
 #quick-start-mode {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.imgur.com/hFOGVvg.jpg");
