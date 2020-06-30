@@ -82,17 +82,17 @@ class Home extends React.Component {
       <div className="Home">
         <div id="quick-start-mode" className="container-fluid">
           <div className="hero-content">
-            <h2>Quick Start</h2>
-          </div>
-          <div className="mode-btn">
+            <h2 className="home-header">Quick Start</h2>
+            <hr/>
+            <hr className="breaker2"/>
             <button className="btn btn-outline-light btn-lg" onClick={this.createQuickStartWorkout}>Start</button>
           </div>
         </div>
         <div id="custom-workout-mode" className="container-fluid">
           <div className="hero-content">
-            <h2>Custom Workout</h2>
-          </div>
-          <div className="mode-btn">
+            <h2 className="home-header">Custom Workout</h2>
+            <hr/>
+            <hr className="breaker2"/>
             <Link className="btn btn-outline-light btn-lg" to='/custom-workout'>Build</Link>
           </div>
         </div>
