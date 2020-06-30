@@ -1,3 +1,22 @@
+@import '../../../styles/variables.scss';
+
 .SingleExercise {
   display: block;
+  padding: 25px 20%;
+}
+
+.exerciseType1 {
+  background-color: $brand-green;
+  h2, i {
+    color: $brand-gold;
+  }
+}
+.exerciseType2 {
+  background-color: $brand-gold;
+}
+.exerciseType3 {
+  background-color: $brand-blue;
+}
+.exerciseType4 {
+  background-color: $brand-pink;
 }

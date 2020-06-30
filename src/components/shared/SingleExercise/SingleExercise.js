@@ -1,10 +1,10 @@
 import React from 'react';
 import {
   Collapse,
-  CardHeader,
   CardBody,
   Card,
 } from 'reactstrap';
+import './SingleExercise.scss';
 
 import exerciseShape from '../../../helpers/propz/exerciseShape';
 
@@ -24,8 +24,8 @@ class SingleExercise extends React.Component {
     const { exercise } = this.props;
 
     return (
-      <Card className="SingleExercise">
-        <CardHeader onClick={this.toggle}>
+      <Card className={`SingleExercise ${exercise.typeId}`}>
+        <div className="closed-card" onClick={this.toggle}>
           <div className="row single-exercise-content">
             <img src={exercise.diagram} alt="" className="mr-5"/>
             <div className="d-flex align-items-center">
@@ -35,7 +35,7 @@ class SingleExercise extends React.Component {
               <i className="fas fa-chevron-down"></i>
             </button>
           </div>
-        </CardHeader>
+        </div>
 
         <Collapse isOpen={isOpen}>
           <CardBody>
