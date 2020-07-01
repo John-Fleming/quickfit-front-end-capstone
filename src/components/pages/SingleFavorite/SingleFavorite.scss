@@ -1,5 +1,33 @@
+@import '../../../styles/variables.scss';
+
 .SingleFavorite {
   display: block;
   margin-top: 56px;
   width: 100%;
+  min-height: 100vh;
+  background-color: $brand-black;
+  
+}
+
+.single-favorite-header {
+  text-align: center;
+  padding: 25px 0;
+  color: white;
+}
+
+.form-group {
+  font-size: 1.3rem;
+}
+
+.single-fav-back-btn {
+  color: white;
+  position: absolute;
+  left: 2rem;
+  top: 4.8rem;
+}
+
+.favorites-btns {
+  display: flex;
+  justify-content: space-between;
+  padding: 45px 10%;
 }
