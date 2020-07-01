@@ -105,45 +105,45 @@ class SingleFavorite extends React.Component {
 
     return (
       <div className="SingleFavorite">
-        <div className="favorites-header row col-10 offset-1">
-          <Link className="btn mr-2 back-btn" to='/profile'><i className="fas fa-chevron-left"></i></Link>
+        <div className="single-favorite-header">
           <h2>Favorited Workouts</h2>
-        </div>
-        <div className="row excercise-counts mb-5">
-          <div className="form-group mr-3">
-            <label htmlFor="favorites-reps-dropdown">Update default reps:</label>
-            <select className="form-control" id="favorites-reps-dropdown" onChange={this.repsChange}>
-              <option hidden>{workout.reps}</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-            </select>
+          <div className="excercise-counts row col-6 offset-3">
+            <div className="form-group ml-auto mr-2">
+              <label htmlFor="favorites-reps-dropdown">Update default reps:</label>
+              <select className="form-control" id="favorites-reps-dropdown" onChange={this.repsChange}>
+                <option hidden>{workout.reps}</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+              </select>
+            </div>
+            <div className="form-group mr-auto ml-2">
+              <label htmlFor="favorites-sets-dropdown">Update default sets:</label>
+              <select className="form-control" id="favorites-sets-dropdown" onChange={this.setsChange}>
+                <option hidden>{workout.sets}</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </div>
           </div>
-          <div className="form-group">
-            <label htmlFor="favorites-sets-dropdown">Update default sets:</label>
-            <select className="form-control" id="favorites-sets-dropdown" onChange={this.setsChange}>
-              <option hidden>{workout.sets}</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
-          </div>
         </div>
+        <Link className="btn mr-2 single-fav-back-btn" to='/profile'><i className="fas fa-chevron-left"></i></Link>
         <div id="exercisesAccordion">
           {buildExerciseAccordion}
         </div>
         <div className="favorites-btns">
-          <Link className="btn btn-outline-dark" to='/profile' onClick={this.patchIsFavorited}>Unfavorite</Link>
-          <button className="btn btn-outline-dark" onClick={this.patchRepSets}>Save</button>
-          <Link className="btn btn-outline-dark" to={workoutLink}>To Live Workout</Link>
+          <Link className="btn btn-outline-light btn-lg" to='/profile' onClick={this.patchIsFavorited}>Unfavorite</Link>
+          <button className="btn btn-outline-light btn-lg" onClick={this.patchRepSets}>Save</button>
+          <Link className="btn btn-outline-light btn-lg" to={workoutLink}>To Live Workout</Link>
         </div>
         <Alert color="success" isOpen={isOpen}>
           Workout updated successfully!
