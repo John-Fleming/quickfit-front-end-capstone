@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './ExerciseTypeBuilder.scss';
 import {
   Collapse,
-  CardHeader,
   CardBody,
   Card,
 } from 'reactstrap';
@@ -58,7 +57,7 @@ class ExerciseTypeBuilder extends React.Component {
     const { type } = this.props;
 
     const buildRadioButtons = exercises.map((exercise) => (
-      <div className="form-check" key={exercise.id}>
+      <div className="form-check mx-auto" key={exercise.id}>
         <input
         type="radio"
         name={`${exercise.typeId}Exercises`}
@@ -73,36 +72,32 @@ class ExerciseTypeBuilder extends React.Component {
     ));
 
     const buildExercisePreview = () => (
-        <div className="col-9">
+        <div className="">
           <img src={selectedExercise.diagram} alt="selected exercise diagram" className="img-fluid"/>
-          <p>{selectedExercise.description}</p>
+          <p className="exercise-description">{selectedExercise.description}</p>
         </div>
     );
 
     return (
-      <Card className="ExerciseTypeBuilder">
-        <CardHeader onClick={this.toggle}>
-          <div className="row exercise-builder-header">
-            <div className="d-flex align-items-center">
-              <h2 className="mb-0">Select Your {type.name} Exercise</h2>
-            </div>
-            <button onClick={this.toggle} className="btn ml-auto">
-              <i className="fas fa-chevron-down"></i>
-            </button>
+      <Card className={`ExerciseTypeBuilder text-center ${type.id}`}>
+        <div className="exercise-builder-header" onClick={this.toggle}>
+          <div className="row">
+            <h2 className="mx-auto">Select Your {type.name} Exercise</h2>
           </div>
-        </CardHeader>
+          <button onClick={this.toggle} className="btn row">
+            <i className="fas fa-chevron-down"></i>
+          </button>
+        </div>
 
         <Collapse isOpen={isOpen}>
-          <CardBody>
-            <div className="row exercise-builder-content">
-              <div className="form col-3 d-flex flex-column justify-content-center">
-                {buildRadioButtons}
-              </div>
-              { isSelected
-                ? buildExercisePreview()
-                : <div></div>
-                }
+          <CardBody className="row exercise-builder-content">
+            <div className="form row radio-btn-container col-6 offset-3">
+              {buildRadioButtons}
             </div>
+            { isSelected
+              ? buildExercisePreview()
+              : <div></div>
+              }
           </CardBody>
         </Collapse>
       </Card>

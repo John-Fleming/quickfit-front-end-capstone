@@ -1,5 +1,25 @@
+@import '../../../styles/variables';
+
 .WorkoutBuilder {
   display: block;
   margin-top: 56px;
   width: 100%;
+  min-height: 100vh;
+  background-color: $brand-black;
+}
+
+.workout-builder-header {
+  text-align: center;
+  padding: 25px 0;
+  color: white;
+}
+
+.form-group {
+  font-size: 1.3rem;
+}
+
+.custom-workout-btns {
+  display: flex;
+  justify-content: space-around;
+  padding: 45px 10%;
 }

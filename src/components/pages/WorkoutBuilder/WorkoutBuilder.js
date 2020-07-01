@@ -15,8 +15,8 @@ class WorkoutBuilder extends React.Component {
     selectedLowerExercise: '',
     selectedCoreExercise: '',
     selectedPlyoExercise: '',
-    reps: '',
-    sets: '',
+    reps: 5,
+    sets: 4,
     exerciseTypes: [],
     exercises: [],
   }
@@ -99,39 +99,41 @@ class WorkoutBuilder extends React.Component {
 
     return (
       <div className="WorkoutBuilder">
-        <h2>Build Your Workout</h2>
-        <div className="row excercise-counts mb-4">
-          <div className="form-group mr-3">
-            <label htmlFor="favorites-reps-dropdown">Select reps:</label>
-            <select className="form-control" id="favorites-reps-dropdown" onChange={this.repsChange}>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-            </select>
-          </div>
-          <div className="form-group">
-            <label htmlFor="favorites-sets-dropdown">Select sets:</label>
-            <select className="form-control" id="favorites-sets-dropdown" onChange={this.setsChange}>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
+        <div className="workout-builder-header">
+          <h2>Build Your Workout</h2>
+          <div className="excercise-counts row col-4 offset-4">
+            <div className="form-group ml-auto mr-2">
+              <label htmlFor="favorites-reps-dropdown">Select reps:</label>
+              <select className="form-control" id="favorites-reps-dropdown" onChange={this.repsChange}>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+              </select>
+            </div>
+            <div className="form-group mr-auto ml-2">
+              <label htmlFor="favorites-sets-dropdown">Select sets:</label>
+              <select className="form-control" id="favorites-sets-dropdown" onChange={this.setsChange}>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </div>
           </div>
         </div>
         <div id="exerciseBuilderAccordions">
           {buildAccordions}
         </div>
-        <div className="custom-workout-btns mt-4">
-          <Link className="btn btn-outline-dark"to='/home'>Cancel</Link>
-          <button className="btn btn-outline-dark" onClick={this.submitCustomWorkout} to='/workout/:workoutId'>Start</button>
+        <div className="custom-workout-btns">
+          <Link className="btn btn-outline-light btn-lg"to='/home'>Cancel</Link>
+          <button className="btn btn-outline-light btn-lg" onClick={this.submitCustomWorkout} to='/workout/:workoutId'>Start</button>
         </div>
       </div>
     );
