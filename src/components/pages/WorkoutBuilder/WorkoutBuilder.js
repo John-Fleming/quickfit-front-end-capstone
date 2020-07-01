@@ -101,7 +101,7 @@ class WorkoutBuilder extends React.Component {
       <div className="WorkoutBuilder">
         <div className="workout-builder-header">
           <h2>Build Your Workout</h2>
-          <div className="excercise-counts row col-4 offset-4">
+          <div className="excercise-counts row col-6 offset-3">
             <div className="form-group ml-auto mr-2">
               <label htmlFor="favorites-reps-dropdown">Select reps:</label>
               <select className="form-control" id="favorites-reps-dropdown" onChange={this.repsChange}>
