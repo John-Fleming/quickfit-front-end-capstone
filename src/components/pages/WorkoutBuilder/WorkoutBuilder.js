@@ -15,8 +15,8 @@ class WorkoutBuilder extends React.Component {
     selectedLowerExercise: '',
     selectedCoreExercise: '',
     selectedPlyoExercise: '',
-    reps: '',
-    sets: '',
+    reps: 5,
+    sets: 4,
     exerciseTypes: [],
     exercises: [],
   }
