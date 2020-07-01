@@ -10,8 +10,11 @@
 
 .workout-builder-header {
   text-align: center;
-  padding: 25px 0;
+  padding: 25px 10%;
   color: white;
+  h2 {
+    font-size: 2.8rem;
+  }
 }
 
 .form-group {
