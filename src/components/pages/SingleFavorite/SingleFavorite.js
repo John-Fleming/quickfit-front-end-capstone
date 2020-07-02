@@ -106,7 +106,7 @@ class SingleFavorite extends React.Component {
     return (
       <div className="SingleFavorite">
         <div className="single-favorite-header">
-          <h2>Favorited Workouts</h2>
+          <h2>Favorited Workout</h2>
           <div className="excercise-counts row col-6 offset-3">
             <div className="form-group ml-auto mr-2">
               <label htmlFor="favorites-reps-dropdown">Update default reps:</label>
