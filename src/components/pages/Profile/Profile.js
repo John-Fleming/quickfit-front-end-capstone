@@ -87,29 +87,29 @@ class Profile extends React.Component {
     } = this.state;
     return (
       <div className="Profile">
-        <div className="profile-card row col-10 offset-1">
-          <div className="col-4 profile-card-left">
-            <img src={userAvatar} alt=""/>
+        <div className="card profile-card text-center col-lg-8 col-10 mx-auto shadow">
+          <div className="photo-container">
+            <img id="userAvatar" src={userAvatar} alt=""/>
           </div>
-          <div className="col-8 profile-card-right text-center">
-            <h4>{username}</h4>
+          <div className="user-profile-content">
+            <h4 className="username">{username}</h4>
             <div className="row workout-counts">
               <div className="col-6 completed-workout-container">
                 <h6 className="workout-counts-header">Completed</h6>
-                <p className="completed-workout-count">{completedWorkouts.length}</p>
+                <p className="workout-total">{completedWorkouts.length}</p>
               </div>
               <div className="col-6 favorited-workout-container">
                 <h6 className="workout-counts-header">Favorited</h6>
-                <p className="favorited-workout-count">{favoriteWorkouts.length}</p>
+                <p className="workout-total">{favoriteWorkouts.length}</p>
               </div>
             </div>
           </div>
         </div>
-        <div className="profile-btns d-flex flex-column col-10 offset-1">
+        <div className="profile-btns d-flex flex-column col-lg-8 col-10 mx-auto">
           <Link className="btn btn-outline-dark mt-4" to='/home'>Start New Workout</Link>
           <Link className="btn btn-outline-dark mt-3" to='/favorites'>View Favorites</Link>
           <button className="btn btn-outline-dark mt-3" onClick={this.deleteWorkoutHistory}>Delete Workout History</button>
-          <button className="btn btn-outline-dark mt-3" onClick={this.logMeOut}>Logout</button>
+          <button className="btn btn-outline-dark my-3" onClick={this.logMeOut}>Logout</button>
         </div>
       </div>
     );
