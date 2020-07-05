@@ -14,9 +14,9 @@ class Login extends React.Component {
     return (
       <div className="Login mx-auto">
         <div className="logo d-flex justify-content-center">
-          <span><i className="fas fa-running fa-5x"></i></span>
+          <img src="https://i.imgur.com/SK3um5y.png" alt=""/>
         </div>
-        <h1 className="app-title">Workout App</h1>
+        <h1 className="app-title text-center">QuickFit</h1>
         <div id="login-btn" className="d-flex justify-content-center">
           <button className="btn btn-outline-dark btn-lg mt-3" onClick={this.loginClickEvent}>Login</button>
         </div>
