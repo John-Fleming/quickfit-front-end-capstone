@@ -1,4 +1,5 @@
 @import '../../../styles/fonts';
+@import '../../../styles/variables';
 
 .MyNavbar {
   display: block;
@@ -8,4 +9,15 @@
   font-family: 'Josefin Sans';
   font-style: italic;
   padding-left: 0;
+}
+
+.user-icon {
+  padding: 6px 0 10px;
+}
+
+#nav-user-photo {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  
 }
