@@ -26,10 +26,10 @@ class MyNavbar extends React.Component {
             <NavLink tag={RRNavLink} to="/home" className="brand-header navbar-brand">QuickFit</NavLink>
               <Nav className="ml-auto flex-row" navbar>
                 <NavItem className="mr-2">
-                  <NavLink tag={RRNavLink} to="/favorites"><i className="far fa-bookmark"></i></NavLink>
+                  <NavLink className="favorites-icon" tag={RRNavLink} to="/favorites"><i className="far fa-bookmark text-dark"></i></NavLink>
                 </NavItem>
                 <NavItem className="ml-2">
-                  <NavLink tag={RRNavLink} to="/profile"><i className="fas fa-user-circle"></i></NavLink>
+                  <NavLink tag={RRNavLink} to="/profile"><i className="far fa-user text-dark"></i></NavLink>
                 </NavItem>
               </Nav>
           </Navbar>

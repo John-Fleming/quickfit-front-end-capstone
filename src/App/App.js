@@ -57,12 +57,12 @@ class App extends React.Component {
   }
 
   render() {
-    const { authed } = this.state;
+    const { authed, userPhoto } = this.state;
     return (
       <div className="App">
         <BrowserRouter>
           <React.Fragment>
-            <MyNavbar authed={authed} />
+            <MyNavbar authed={authed}/>
             <div className="container-fluid">
               <div className="row">
                 <Switch>
