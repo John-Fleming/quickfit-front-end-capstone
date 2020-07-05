@@ -20,6 +20,7 @@ class Favorites extends React.Component {
 
   componentDidMount() {
     this.getFavoriteWorkouts();
+    window.scrollTo(0, 0);
   }
 
   render() {

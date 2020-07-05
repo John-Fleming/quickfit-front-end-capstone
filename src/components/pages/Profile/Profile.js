@@ -40,6 +40,7 @@ class Profile extends React.Component {
     this.getAuthedUser();
     this.getCompletedWorkouts();
     this.getFavoriteWorkouts();
+    window.scrollTo(0, 0);
   }
 
   deleteAllWorkouts = (workoutId) => {

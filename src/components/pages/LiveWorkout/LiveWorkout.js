@@ -52,6 +52,7 @@ class LiveWorkout extends React.Component {
         this.getSingleLowerExercise(workout.lowerExercise);
         this.getSingleCoreExercise(workout.coreExercise);
         this.getSinglePlyoExercise(workout.plyoExercise);
+        window.scrollTo(0, 0);
       })
       .catch((err) => console.error('could not get specific workout: , err'));
   }

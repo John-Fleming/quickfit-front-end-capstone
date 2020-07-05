@@ -62,6 +62,7 @@ class WorkoutBuilder extends React.Component {
   componentDidMount() {
     this.setExerciseTypes();
     this.setAllExercises();
+    window.scrollTo(0, 0);
   }
 
   submitCustomWorkout = () => {
