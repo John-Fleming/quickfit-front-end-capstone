@@ -23,7 +23,7 @@ class MyNavbar extends React.Component {
       return (
         <div className="MyNavbar">
           <Navbar color="light" light fixed="top">
-            <NavLink tag={RRNavLink} to="/home" className="brand-header navbar-brand"><i className="fas fa-running"></i> QuickFit</NavLink>
+            <NavLink tag={RRNavLink} to="/home" className="brand-header navbar-brand">QuickFit</NavLink>
               <Nav className="ml-auto flex-row" navbar>
                 <NavItem className="mr-2">
                   <NavLink tag={RRNavLink} to="/favorites"><i className="far fa-bookmark"></i></NavLink>
