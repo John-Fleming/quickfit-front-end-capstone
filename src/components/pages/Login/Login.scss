@@ -1,8 +1,9 @@
 .Login {
-  height: 100vh;
+  max-height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding-top: 15%;
   
   #login-btn {
     margin-top: 4rem;
