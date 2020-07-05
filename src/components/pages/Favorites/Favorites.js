@@ -27,11 +27,11 @@ class Favorites extends React.Component {
     const buildFavWorkoutCards = favoriteWorkouts.map((workout) => <FavoriteWorkoutCard key={workout.id} workout={workout}/>);
     return (
       <div className="Favorites">
-        <div className="favorites-header row col-10 offset-1">
-          <Link className="btn mr-2 back-btn" to='/profile'><i className="fas fa-chevron-left"></i></Link>
+        <Link className="btn mr-2 favorites-back-btn" to='/profile'><i className="fas fa-chevron-left"></i></Link>
+        <div className="favorites-header col-10 offset-1">
           <h2>Favorite Workouts</h2>
         </div>
-        <div className="favorite-workouts-container col-8 offset-2">
+        <div className="favorite-workouts-container col-10 offset-1">
           {buildFavWorkoutCards}
         </div>
       </div>
