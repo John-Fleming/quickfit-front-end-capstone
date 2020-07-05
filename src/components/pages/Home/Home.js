@@ -47,6 +47,7 @@ class Home extends React.Component {
     this.getLowerExercises();
     this.getCoreExercises();
     this.getPlyoExercises();
+    window.scrollTo(0, 0);
   }
 
   randomExercise = (arr) => arr[Math.floor(Math.random() * arr.length)];
