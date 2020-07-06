@@ -143,7 +143,7 @@ class SingleFavorite extends React.Component {
         <div className="favorites-btns">
           <Link className="btn btn-outline-light btn-lg" to='/profile' onClick={this.patchIsFavorited}>Unfavorite</Link>
           <button className="btn btn-outline-light btn-lg" onClick={this.patchRepSets}>Save</button>
-          <Link className="btn btn-outline-light btn-lg" to={workoutLink}>To Live Workout</Link>
+          <Link className="btn btn-outline-light btn-lg" to={workoutLink}>Launch Workout</Link>
         </div>
         <Alert color="success" isOpen={isOpen}>
           Workout updated successfully!
