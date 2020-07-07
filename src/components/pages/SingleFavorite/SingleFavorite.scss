@@ -31,6 +31,16 @@
 
 .favorites-btns {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 45px 10%;
 }
+
+@media only screen 
+  and (max-width: 812px) {
+    .favorites-btns {
+      flex-direction: column;
+      .single-favorite-btn {
+        margin-bottom: 1rem;
+      }
+    }
+  }

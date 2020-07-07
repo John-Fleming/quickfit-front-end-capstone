@@ -108,7 +108,7 @@ class SingleFavorite extends React.Component {
         <div className="single-favorite-header">
           <h2>Favorited Workout</h2>
           <div className="excercise-counts row col-6 offset-3">
-            <div className="form-group ml-auto mr-2">
+            <div className="form-group mx-auto">
               <label htmlFor="favorites-reps-dropdown">Update default reps:</label>
               <select className="form-control" id="favorites-reps-dropdown" onChange={this.repsChange}>
                 <option hidden>{workout.reps}</option>
@@ -125,7 +125,7 @@ class SingleFavorite extends React.Component {
                 <option value="15">15</option>
               </select>
             </div>
-            <div className="form-group mr-auto ml-2">
+            <div className="form-group mx-auto">
               <label htmlFor="favorites-sets-dropdown">Update default sets:</label>
               <select className="form-control" id="favorites-sets-dropdown" onChange={this.setsChange}>
                 <option hidden>{workout.sets}</option>
@@ -141,9 +141,9 @@ class SingleFavorite extends React.Component {
           {buildExerciseAccordion}
         </div>
         <div className="favorites-btns">
-          <Link className="btn btn-outline-light btn-lg" to='/profile' onClick={this.patchIsFavorited}>Unfavorite</Link>
-          <button className="btn btn-outline-light btn-lg" onClick={this.patchRepSets}>Save</button>
-          <Link className="btn btn-outline-light btn-lg" to={workoutLink}>Launch Workout</Link>
+          <Link className="btn btn-outline-light btn-lg single-favorite-btn" to='/profile' onClick={this.patchIsFavorited}>Unfavorite</Link>
+          <button className="btn btn-outline-light btn-lg single-favorite-btn" onClick={this.patchRepSets}>Save</button>
+          <Link className="btn btn-outline-light btn-lg single-favorite-btn" to={workoutLink}>Launch Workout</Link>
         </div>
         <Alert color="success" isOpen={isOpen}>
           Workout updated successfully!
