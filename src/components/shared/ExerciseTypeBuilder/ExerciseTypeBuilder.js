@@ -57,7 +57,7 @@ class ExerciseTypeBuilder extends React.Component {
     const { type } = this.props;
 
     const buildRadioButtons = exercises.map((exercise) => (
-      <div className="form-check mx-auto" key={exercise.id}>
+      <div className="form-check" key={exercise.id}>
         <input
         type="radio"
         name={`${exercise.typeId}Exercises`}
@@ -91,7 +91,7 @@ class ExerciseTypeBuilder extends React.Component {
 
         <Collapse isOpen={isOpen}>
           <CardBody className="row exercise-builder-content">
-            <div className="form row radio-btn-container col-6 offset-3">
+            <div className="form row radio-btn-container col-8 offset-2">
               {buildRadioButtons}
             </div>
             { isSelected

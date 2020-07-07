@@ -12,9 +12,12 @@
     padding: 35px 0 20px;
   }
   .radio-btn-container {
+    display: flex;
     margin-bottom: 1.2rem;
+    font-size: 1.4rem;
   }
   .exercise-description {
+    font-size: 1.4rem;
     margin-top: 1.2rem;
   }
 }
@@ -40,3 +43,17 @@
 .exerciseType4 {
   @include exercise-colors($brand-pink, $brand-blue);
 }
+
+@media only screen 
+  and (max-width: 812px) {
+    .radio-btn-container {
+      justify-content: flex-start;
+    }
+  }
+
+@media only screen 
+  and (min-width: 812px) {
+    .radio-btn-container {
+      justify-content: space-around;
+    }
+  }

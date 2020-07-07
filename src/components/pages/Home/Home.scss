@@ -36,22 +36,25 @@
   }
 }
 
-#quick-start-mode {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.imgur.com/hFOGVvg.jpg");
-}
-
-#custom-workout-mode {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.imgur.com/B3QAiyg.jpg");
-}
-
 @media only screen 
   and (max-width: 812px) { 
     #quick-start-mode {
-      height: calc(50vh - 28px);
+      height: calc(50vh - 50px);
       background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.imgur.com/EhUmPYg.jpg");
     }
     #custom-workout-mode {
-      height: calc(50vh - 27px);
+      height: calc(50vh - 16px);
       background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.imgur.com/WgoF6dE.jpg");
+      margin-top: 10px;
     }
 }
+
+@media only screen 
+  and (min-width: 812px) {
+    #quick-start-mode {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.imgur.com/hFOGVvg.jpg");
+    }
+    #custom-workout-mode {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.imgur.com/B3QAiyg.jpg");
+    }
+  }
