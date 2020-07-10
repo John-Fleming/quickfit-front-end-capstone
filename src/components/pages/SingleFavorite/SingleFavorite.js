@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Alert } from 'reactstrap';
+// import { UncontrolledAlert } from 'reactstrap';
 import './SingleFavorite.scss';
 
 import exerciseData from '../../../helpers/data/exerciseData';
@@ -20,7 +21,10 @@ class SingleFavorite extends React.Component {
   }
 
   toggle = () => {
-    this.setState({ isOpen: !this.state.isOpen });
+    this.setState({ isOpen: true },
+      () => {
+        window.setTimeout(() => { this.setState({ isOpen: false }); }, 4000);
+      });
   }
 
   repsChange = (e) => {
@@ -85,7 +89,7 @@ class SingleFavorite extends React.Component {
     const { workoutId } = this.props.match.params;
     const { workoutReps, workoutSets } = this.state;
     workoutData.updateRepsAndSets(workoutId, workoutReps, workoutSets)
-      .then(() => this.toggle)
+      .then(() => this.toggle())
       .catch((err) => console.error('could not update reps or sets: ', err));
   }
 
@@ -107,6 +111,7 @@ class SingleFavorite extends React.Component {
       <div className="SingleFavorite">
         <div className="single-favorite-header">
           <h2>Favorited Workout</h2>
+
           <div className="excercise-counts row col-6 offset-3">
             <div className="form-group mx-auto">
               <label htmlFor="favorites-reps-dropdown">Update default reps:</label>
@@ -135,19 +140,25 @@ class SingleFavorite extends React.Component {
               </select>
             </div>
           </div>
+
         </div>
+
         <Link className="btn mr-2 single-fav-back-btn" to='/profile'><i className="fas fa-chevron-left"></i></Link>
+
         <div id="exercisesAccordion">
           {buildExerciseAccordion}
         </div>
+
+        <Alert className="updated-workout-alert" isOpen={isOpen}>
+        Workout updated successfully!
+        </Alert>
+
         <div className="favorites-btns">
           <Link className="btn btn-outline-light btn-lg single-favorite-btn" to='/profile' onClick={this.patchIsFavorited}>Unfavorite</Link>
           <button className="btn btn-outline-light btn-lg single-favorite-btn" onClick={this.patchRepSets}>Save</button>
           <Link className="btn btn-outline-light btn-lg single-favorite-btn" to={workoutLink}>Launch Workout</Link>
         </div>
-        <Alert color="success" isOpen={isOpen}>
-          Workout updated successfully!
-        </Alert>
+
       </div>
     );
   }
