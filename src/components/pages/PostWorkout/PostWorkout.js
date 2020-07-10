@@ -15,6 +15,7 @@ class PostWorkout extends React.Component {
       .then((resp) => {
         const isChecked = resp.data.isFavorited;
         this.setState({ isChecked });
+        window.scrollTo(0, 0);
       })
       .catch((err) => console.error('could not get specific workout: , err'));
   }
