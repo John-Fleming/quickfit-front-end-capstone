@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Alert } from 'reactstrap';
 import './WorkoutBuilder.scss';
 
 import authData from '../../../helpers/data/authData';
@@ -11,14 +12,22 @@ import workoutData from '../../../helpers/data/workoutData';
 
 class WorkoutBuilder extends React.Component {
   state = {
-    selectedUpperExercise: '',
-    selectedLowerExercise: '',
-    selectedCoreExercise: '',
-    selectedPlyoExercise: '',
+    selectedUpperExercise: null,
+    selectedLowerExercise: null,
+    selectedCoreExercise: null,
+    selectedPlyoExercise: null,
     reps: 5,
     sets: 4,
     exerciseTypes: [],
     exercises: [],
+    isOpen: false,
+  }
+
+  toggle = () => {
+    this.setState({ isOpen: true },
+      () => {
+        window.setTimeout(() => { this.setState({ isOpen: false }); }, 4000);
+      });
   }
 
   repsChange = (e) => {
@@ -86,16 +95,20 @@ class WorkoutBuilder extends React.Component {
       UID: authData.getUid(),
     };
 
-    workoutData.createWorkout(newCustomWorkout)
-      .then((resp) => {
-        const workoutId = resp.data.name;
-        this.props.history.push(`/workout/${workoutId}`);
-      })
-      .catch((err) => console.error('could not create custom workout: ', err));
+    if (newCustomWorkout.upperExercise && newCustomWorkout.lowerExercise && newCustomWorkout.coreExercise && newCustomWorkout.plyoExercise) {
+      workoutData.createWorkout(newCustomWorkout)
+        .then((resp) => {
+          const workoutId = resp.data.name;
+          this.props.history.push(`/workout/${workoutId}`);
+        })
+        .catch((err) => console.error('could not create custom workout: ', err));
+    } else {
+      this.toggle();
+    }
   }
 
   render() {
-    const { exerciseTypes } = this.state;
+    const { exerciseTypes, isOpen } = this.state;
     const buildAccordions = exerciseTypes.map((type) => <ExerciseTypeBuilder key={type.id} type={type} setSelectedExercises={this.setSelectedExercises}/>);
 
     return (
@@ -132,6 +145,11 @@ class WorkoutBuilder extends React.Component {
         <div id="exerciseBuilderAccordions">
           {buildAccordions}
         </div>
+
+        <Alert className="select-exercise-alert" isOpen={isOpen}>
+        Please select an exercise for each category!
+        </Alert>
+
         <div className="custom-workout-btns">
           <Link className="btn btn-outline-light btn-lg"to='/home'>Cancel</Link>
           <button className="btn btn-outline-light btn-lg" onClick={this.submitCustomWorkout} to='/workout/:workoutId'>Start</button>

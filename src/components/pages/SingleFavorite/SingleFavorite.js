@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Alert } from 'reactstrap';
-// import { UncontrolledAlert } from 'reactstrap';
 import './SingleFavorite.scss';
 
 import exerciseData from '../../../helpers/data/exerciseData';
