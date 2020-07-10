@@ -5,12 +5,11 @@ import {
   Card,
 } from 'reactstrap';
 import './SingleExercise.scss';
-
-import exerciseShape from '../../../helpers/propz/exerciseShape';
+import PropTypes from 'prop-types';
 
 class SingleExercise extends React.Component {
   static propTypes = {
-    exercise: exerciseShape.exerciseShape,
+    exercise: PropTypes.object.isRequired,
   }
 
   state = {
